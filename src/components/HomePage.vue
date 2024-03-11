@@ -6,6 +6,7 @@
                 <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
                 <a class="navbar-brand fw-semibold bnb ps-2 fs-4" href="#">boolbnb</a>
             </div>
+            <Searchbar/>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -29,6 +30,8 @@
     </header>
 </template>
 <script>
+import Searchbar from './Searchbar.vue';
+
 export default {
     data(){
         return {
