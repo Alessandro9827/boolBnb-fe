@@ -17,10 +17,6 @@
                                 {{ link.label }}
                             </router-link>
                         </li> 
-                       
-                       
-                        
-                        
                     </ul>
                 </div>
             </div>
@@ -30,7 +26,7 @@
     </header>
 </template>
 <script>
-import Searchbar from './Searchbar.vue';
+
 
 export default {
     data(){
