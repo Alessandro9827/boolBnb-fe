@@ -2,12 +2,10 @@
     <main class="container">
         <section class="row justify-content-center">
             <div class="col-12">
-                <h1 class="pt-5 pb-3">
-                    Cocktails:
-                </h1>
+               
             </div>
-            <SingleCard class="card p-0 col-3 mx-4 my-5" v-for="cocktail in cocktails" :key="cocktail"
-                :title="cocktail.title" :cocktail_image="cocktail.cocktail_image" :description="cocktail.description" :linkRoute="{ name: 'single-cocktail', params: { id: cocktail.id }}" linkLabel="Read more..."
+            <SingleCard class="card p-0 col-3 mx-4 my-5" v-for="apartment in apartments" :key="apartment"
+                :title="apartment.title" :cocktail_image="apartment.img" :description="apartment.description" :linkRoute="{ name: 'single-cocktail', params: { id: apartment.id }}" linkLabel="Read more..."
             />
         </section>
     </main>
@@ -17,21 +15,21 @@ import SingleCard from '@/components/SingleCard.vue';
 import axios from 'axios';
 
 export default {
-    name: 'Cocktails',
+    name: 'Apartments',
     data(){
         return{
-            cocktails: [],
+            Apartments: [],
         }
     },
     methods:{
-        getCocktails(){
+        getApartments(){
             axios.get('http://127.0.0.1:8000/api/cocktails', {
                 params: {
                 }
             })
             .then((response) => {
                 console.log(response.data.results.data);
-                this.cocktails = response.data.results.data;
+                this.apartments = response.data.results.data;
 
             })
             .catch(function (error) {
@@ -45,7 +43,7 @@ export default {
     },
 
     created(){
-        this.getCocktails();
+        this.getApartments();
     }
 }
 </script>
