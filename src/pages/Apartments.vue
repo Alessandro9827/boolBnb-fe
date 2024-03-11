@@ -23,7 +23,7 @@ export default {
     },
     methods:{
         getApartments(){
-            axios.get('http://127.0.0.1:8000/guest/apartments', {
+            axios.get('http://127.0.0.1:8000/api/guest/apartments', {
                 params: {
                 }
             })
