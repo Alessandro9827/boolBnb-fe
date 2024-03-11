@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-
 import HomePage from './components/HomePage.vue';
 import Apartments from './pages/Apartments.vue';
 import SingleApartment from './pages/SingleApartment.vue';
@@ -16,7 +15,7 @@ const router = createRouter({
             component: HomePage
         },
         {
-            path: '/apartments',
+            path: '/guest/apartments',
             name: 'apartments',
             component: Apartments
         },
@@ -25,8 +24,6 @@ const router = createRouter({
             name: 'single-apartment',
             component: SingleApartment
         },
-
-
     ]
 
 });
