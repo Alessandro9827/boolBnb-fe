@@ -30,7 +30,7 @@
     </header>
 </template>
 <script>
-import Searchbar from './Searchbar.vue';
+
 
 export default {
     data(){
