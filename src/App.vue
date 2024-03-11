@@ -11,11 +11,11 @@ import SearchBar from './components/saerch/SearchBar.vue';
 </script>
 
 <template>
+    <SearchBar />
     <router-view>
       
     </router-view>
 
-    <SearchBar />
 </template>
 
 <style lang="scss">
