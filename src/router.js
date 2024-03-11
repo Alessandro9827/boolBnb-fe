@@ -1,10 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import HomePage from './components/HomePage.vue';
-import ChiSiamo from './pages/ChiSiamo.vue';
-import Cocktails from './pages/Cocktails.vue';
-import SingleCocktail from './pages/SingleCocktail.vue';
-import Contatti from './pages/Contatti.vue';
+import Apartments from './pages/Apartments.vue';
+import SingleApartment from './pages/SingleApartment.vue';
+
 
 
 
@@ -17,30 +16,19 @@ const router = createRouter({
             component: HomePage
         },
         {
-            path: '/cocktails',
-            name: 'cocktails',
-            component: Cocktails
+            path: '/apartments',
+            name: 'apartments',
+            component: Apartments
         },
         {
-            path: '/cocktails/:id',
-            name: 'single-cocktail',
-            component: SingleCocktail
+            path: '/apartments/:id',
+            name: 'single-apartment',
+            component: SingleApartment
         },
 
-        {
-            path: '/chi-siamo',
-            name: 'chi-siamo',
-            component: ChiSiamo
-        },
-        {
-            path: '/contatti',
-            name: 'contatti',
-            component: Contatti
-        },
 
-       
     ]
-       
+
 });
 
 export { router }
