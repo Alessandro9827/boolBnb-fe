@@ -17,10 +17,6 @@
                                 {{ link.label }}
                             </router-link>
                         </li> 
-                       
-                       
-                        
-                        
                     </ul>
                 </div>
             </div>

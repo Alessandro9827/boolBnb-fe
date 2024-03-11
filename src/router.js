@@ -24,9 +24,6 @@ const router = createRouter({
             name: 'single-apartment',
             component: SingleApartment
         },
-
-
-
     ]
 
 });
