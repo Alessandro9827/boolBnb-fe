@@ -1,9 +1,12 @@
 <script>
 import HomePage from './components/HomePage.vue';
-
+import SearchBar from './components/saerch/SearchBar.vue';
 
   export default{
-    components: { HomePage, }
+    components: { 
+      HomePage,
+      SearchBar,
+    }
 }
 </script>
 
@@ -11,6 +14,8 @@ import HomePage from './components/HomePage.vue';
     <router-view>
       
     </router-view>
+
+    <SearchBar />
 </template>
 
 <style lang="scss">
