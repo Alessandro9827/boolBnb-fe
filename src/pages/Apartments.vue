@@ -5,7 +5,7 @@
                
             </div>
             <SingleCard class="card p-0 col-3 mx-4 my-5" v-for="apartment in apartments" :key="apartment"
-                :title="apartment.title" :apartment_image="apartment_img" :description="apartment.description" :linkRoute="{ name: 'single-apartment', params: { id: apartment.id }}" linkLabel="Read more..."
+                :title="apartment.title" :apartment_image="img" :description="apartment.description" :linkRoute="{ name: 'single-apartment', params: { id: apartment.id }}" linkLabel="Read more..."
             />
         </section>
     </main>
@@ -23,7 +23,7 @@ export default {
     },
     methods:{
         getApartments(){
-            axios.get('http://127.0.0.1:8000/guest/apartments', {
+            axios.get('http://127.0.0.1:8000/api/guest/apartments', {
                 params: {
                 }
             })

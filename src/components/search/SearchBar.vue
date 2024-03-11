@@ -27,19 +27,19 @@ export default {
     },
     methods:{
         getPosts(address){
-            axios.get('http://127.0.0.1:8000', {
+            axios.get('http://127.0.0.1:8000/api/guest/apartments', {
                 params: {
                     address: address,
                 }
             })
-            .then((apartments) => {
-                console.log(apartments);
-                //this.posts = response.data.results;
+            .then((response) => {
+                console.log(response.data.results);
+                this.posts = response.data.results;
 
             })
             .catch(function (error) {
                 console.warn(error);
-                //this.$router.push({ name: 'not-found' })
+                this.$router.push({ name: 'not-found' })
             })
         }
     },
