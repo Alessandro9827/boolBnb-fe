@@ -6,7 +6,7 @@
             </h1>
 
 
-            <img v-if="cocktail_image" :src="cocktail_image" class="card-img-top mb-3" :class="fullLength ? '' : 'image-preview'" alt="...">
+            <img v-if="apartment_image" :src="apartment_image" class="card-img-top mb-3" :class="fullLength ? '' : 'image-preview'" alt="...">
 
             <p class="card-text" v-if="fullLength">
                 {{ description }}
@@ -40,7 +40,7 @@ export default {
             required: true,
             type: String,
         },
-        cocktail_image: {
+        apartment_image: {
             required: true,
             type: String,
         },

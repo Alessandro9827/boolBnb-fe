@@ -4,7 +4,7 @@
             <!-- <h1>
                 Single cocktail: {{ $route.params.id }}
             </h1> -->
-            <SingleCard class="p-0 col-12 mx-4 my-5" :title="cocktail.title" :cocktail_image="cocktail.cocktail_image" :description="cocktail.description" :fullLength="true"
+            <SingleCard class="p-0 col-12 mx-4 my-5" :title="apartment.title" :apartment_image="apartment.img" :description="apartment.description" :fullLength="true"
             />
         </section>
     </main>
@@ -14,22 +14,22 @@ import SingleCard from '@/components/SingleCard.vue';
 import axios from 'axios';
 
 export default {
-    name: 'SingleCocktail',
+    name: 'SingleApartment',
     data(){
         return{
-            cocktail: {},
+            apartment: {},
             id: ''
         }
     },
     methods:{
-        getCocktail(){
-            axios.get(`http://127.0.0.1:8000/api/cocktails/${this.$route.params.id}`, {
+        getApartment(){
+            axios.get(`http://127.0.0.1:8000/api/guest/apartments/${this.$route.params.id}`, {
                 params: {
                 }
             })
             .then((response) => {
                 console.log(response.data.results);
-                this.cocktail = response.data.results;
+                this.apartment = response.data.results;
 
             })
             .catch(function (error) {
@@ -43,7 +43,7 @@ export default {
     },
 
     created(){
-        this.getCocktail();
+        this.getApartment();
     }
 }
 </script>
