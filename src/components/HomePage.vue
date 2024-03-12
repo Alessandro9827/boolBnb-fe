@@ -24,14 +24,17 @@
        
         
     </header>
+    <apartments/>
 </template>
 <script>
+import Apartments from '@/pages/Apartments.vue'
 
 
 export default {
     data(){
         return {
-            linkItems: [
+  
+        Apartments          linkItems: [
                 
                 {
                     label: 'Apartments',
@@ -41,6 +44,9 @@ export default {
             ]
 
         }
+    },
+    components: {
+        Apartments
     }
     
 }

@@ -2,10 +2,17 @@
     <section class="container">
         <div class="input-group m-4">
             <input type="text" class="form-control rounded-pill" id="floatingInput" placeholder="Cerca destinazione" aria-describedby="button-addon2"
-            v-model="search" @keyup.enter="getApartments(search)" >
+                v-model="queryString" @keyup.enter="getApartments(queryString)" >
             <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2">Cerca</button>
         </div>
+
+        <SingleCard class="p-0 col-12 mx-4 my-5" v-for="apartment in apartments" :key="apartment.id"
+        :title="apartment.title" :apartment_image="apartment_img" :description="apartment.description" :fullLength="true" 
+        :linkRoute="{name: 'apartments', params: { id: apartment.id}}" 
+            />
+
     </section>
+    
     
 </template>
 
@@ -20,21 +27,22 @@ export default {
     data(){
         return{
             apartments: [],
-            search: '',
-            title: '',
+            queryString: '',
+            //title: '',
         }
     },
     methods:{
-        getApartments(address){
+        getApartments(title){
             axios.get('http://127.0.0.1:8000/api/guest/apartments/search', {
                 params: {
-                    address: address,
-                    title: this.search,
+                    //address: this.search,
+                    //title: title,
+                    title: title,
                 }
             })
             .then((response) => {
-                console.log(response);
-                //this.apartments = response.data.results;
+                console.log(response.data.results);
+                this.apartments = response.data.results;
 
             })
             .catch(function (error) {
@@ -43,6 +51,7 @@ export default {
             })
         }
     },
+        
     components: {
         SingleApartment,
         Apartments,
