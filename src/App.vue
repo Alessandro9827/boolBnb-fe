@@ -1,6 +1,6 @@
 <script>
 import HomePage from './components/HomePage.vue';
-import SearchBar from './components/saerch/SearchBar.vue';
+import SearchBar from './components/search/SearchBar.vue';
 
   export default{
     components: { 
