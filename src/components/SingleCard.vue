@@ -7,7 +7,7 @@
 
 
             <img v-if="apartment_image" :src="apartment_image" class="card-img-top mb-3" :class="fullLength ? '' : 'image-preview'" alt="...">
-
+            
             <p class="card-text" v-if="fullLength">
                 {{ description }}
             </p>
@@ -37,7 +37,7 @@ export default {
             type: String,
         },
         description: {
-            required: true,
+            required: false,
             type: String,
         },
         apartment_image: {
