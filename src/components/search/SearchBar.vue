@@ -1,14 +1,10 @@
 <template lang="">
     <section class="container">
-        <div class="input-group mt-3">
-        <input type="text" class="form-control rounded-pill" placeholder="Cerca destinazioni" aria-label="Cerca destinazioni" aria-describedby="basic-addon2"
-        v-model="queryString" @keyup.enter="getApartments(queryString)" >
-        <div class="input-group-append">
-            <button class="btn btn-danger m-1 rounded-pill" type="button">
-                Cerca
-            </button>
+        <div class="input-group m-4">
+            <input type="text" class="form-control rounded-pill" id="floatingInput" placeholder="Cerca destinazione" aria-describedby="button-addon2"
+            v-model="search" @keyup.enter="getApartments(search)" >
+            <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2">Cerca</button>
         </div>
-    </div>
     </section>
     
 </template>
@@ -16,25 +12,29 @@
 <script>
 import axios from 'axios';
 import SingleApartment from '@/pages/SingleApartment.vue';
+import Apartments from '@/pages/Apartments.vue';
+import SingleCard from '../SingleCard.vue';
 
 export default {
     name: 'SearchBar',
     data(){
         return{
             apartments: [],
-            queryString: '',
+            search: '',
+            title: '',
         }
     },
     methods:{
-        getPosts(address){
-            axios.get('http://127.0.0.1:8000/api/guest/apartments', {
+        getApartments(address){
+            axios.get('http://127.0.0.1:8000/api/guest/apartments/search', {
                 params: {
                     address: address,
+                    title: this.search,
                 }
             })
             .then((response) => {
-                console.log(response.data.results);
-                this.posts = response.data.results;
+                console.log(response);
+                //this.apartments = response.data.results;
 
             })
             .catch(function (error) {
@@ -43,9 +43,11 @@ export default {
             })
         }
     },
-    components:{
-        SingleApartment
-    },
+    components: {
+        SingleApartment,
+        Apartments,
+        SingleCard
+    }
 }
 </script>
 
