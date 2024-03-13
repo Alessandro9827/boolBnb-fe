@@ -7,7 +7,7 @@
         </div>
 
         <SingleCard class="p-0 col-12 mx-4 my-5" v-for="apartment in apartments" :key="apartment.id"
-        :title="apartment.title" :apartment_image="apartment_img" :description="apartment.description" :fullLength="true" 
+        :title="apartment.title" :apartment_image="apartment.img" :address="apartment.address" :description="apartment.description" :fullLength="true" 
         :linkRoute="{name: 'apartments', params: { id: apartment.id}}" 
             />
 
@@ -32,12 +32,12 @@ export default {
         }
     },
     methods:{
-        getApartments(title){
+        getApartments(address){
             axios.get('http://127.0.0.1:8000/api/guest/apartments/search', {
                 params: {
                     //address: this.search,
                     //title: title,
-                    title: title,
+                    address: address,
                 }
             })
             .then((response) => {
