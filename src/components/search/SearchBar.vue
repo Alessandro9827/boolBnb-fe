@@ -3,8 +3,8 @@
         <!-- <div class="row justify-content-center"> -->
             <div class="col-4 input-group m-4">
                 <input type="text" class="form-control rounded-pill" id="floatingInput" placeholder="Cerca destinazione" aria-describedby="button-addon2"
-                    v-model="queryString" @keyup.enter="getApartments(queryString)" >
-                <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2">Cerca</button>
+                    v-model="queryString" @keyup="getApartments(queryString)" >
+                <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2"@click="getApartments(queryString)">Cerca</button>
             </div>
         <!-- </div> -->
     <!-- </div> -->
