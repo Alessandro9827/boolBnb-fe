@@ -34,7 +34,8 @@ export default {
     data(){
         return {
   
-        Apartments          linkItems: [
+        Apartments,
+        linkItems: [
                 
                 {
                     label: 'Apartments',
