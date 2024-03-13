@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomePage from './components/HomePage.vue';
-import Apartments from './pages/Apartments.vue';
-import SingleApartment from './pages/SingleApartment.vue';
+import Apartments from '../../pages/Apartments.vue';
+import SingleApartment from '../../pages/SingleApartment.vue';
 
 
 
@@ -11,14 +10,14 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            name: 'homepage',
-            component: HomePage
-        },
-        {
-            path: '/guest/apartments',
             name: 'apartments',
             component: Apartments
         },
+        // {
+        //     path: '/guest/apartments',
+        //     name: 'apartments',
+        //     component: Apartments
+        // },
         {
             path: '/apartments/:id',
             name: 'single-apartment',
