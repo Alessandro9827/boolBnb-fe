@@ -1,6 +1,6 @@
 
 import { createApp } from 'vue';
-import { router } from './router';
+import { router } from './components/js/router';
 
 import App from './App.vue';
 

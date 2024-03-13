@@ -1,20 +1,16 @@
 <script>
-import HomePage from './components/HomePage.vue';
-import SearchBar from './components/search/SearchBar.vue';
+import AppHeader from './components/AppHeader.vue'
 
   export default{
     components: { 
-      HomePage,
-      SearchBar,
+      AppHeader
     }
 }
 </script>
 
 <template>
-    <SearchBar />
-    <router-view>
-      
-    </router-view>
+    <AppHeader/>
+    <router-view></router-view>
 
 </template>
 
