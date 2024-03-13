@@ -1,17 +1,23 @@
 <template lang="">
-    <section class="container">
-        <div class="input-group m-4">
-            <input type="text" class="form-control rounded-pill" id="floatingInput" placeholder="Cerca destinazione" aria-describedby="button-addon2"
-                v-model="queryString" @keyup.enter="getApartments(queryString)" >
-            <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2">Cerca</button>
+    <!-- <div class="container-fluid"> -->
+        <!-- <div class="row justify-content-center"> -->
+            <div class="col-4 input-group m-4">
+                <input type="text" class="form-control rounded-pill" id="floatingInput" placeholder="Cerca destinazione" aria-describedby="button-addon2"
+                    v-model="queryString" @keyup.enter="getApartments(queryString)" >
+                <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2">Cerca</button>
+            </div>
+        <!-- </div> -->
+    <!-- </div> -->
+        <div class="container">
+            <div class="row justify-content-center">
+                <SingleCard class="p-0 col-3 mx-4 my-5" v-for="apartment in apartments" :key="apartment.id"
+                :title="apartment.title" :apartment_image="apartment.img" :address="apartment.address" :description="apartment.description" :fullLength="true" 
+                linkLabel="Read more..."
+                :linkRoute="{name: 'apartments', params: { id: apartment.id}}" />
+            </div>
         </div>
 
-        <SingleCard class="p-0 col-12 mx-4 my-5" v-for="apartment in apartments" :key="apartment.id"
-        :title="apartment.title" :apartment_image="apartment.img" :address="apartment.address" :description="apartment.description" :fullLength="true" 
-        :linkRoute="{name: 'apartments', params: { id: apartment.id}}" 
-            />
-
-    </section>
+    
     
     
 </template>
@@ -21,6 +27,7 @@ import axios from 'axios';
 import SingleApartment from '@/pages/SingleApartment.vue';
 import Apartments from '@/pages/Apartments.vue';
 import SingleCard from '../SingleCard.vue';
+import { store } from '../js/store';
 
 export default {
     name: 'SearchBar',
