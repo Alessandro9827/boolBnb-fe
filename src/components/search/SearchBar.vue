@@ -13,7 +13,7 @@
             <SingleCard class="p-0 col-3 mx-4 my-5" v-for="apartment in apartments" :key="apartment.id"
             :title="apartment.title" :apartment_image="apartment.img" :address="apartment.address" :description="apartment.description" :fullLength="true" 
             linkLabel="Read more..."
-            :linkRoute="{name: 'apartments', params: { id: apartment.id}}" />
+            :linkRoute="{name: 'single-apartment', params: { id: apartment.id}}" />
         </div>
     </div>
 </template>
