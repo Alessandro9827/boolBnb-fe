@@ -15,7 +15,11 @@
             linkLabel="Read more..."
             :linkRoute="{name: 'single-apartment', params: { id: apartment.id}}" />
         </div>
+        <div class='row'>
+            <FilterSearchBar/>
+        </div>
     </div>
+
 </template>
 
 <script>
@@ -24,6 +28,7 @@ import SingleApartment from '@/pages/SingleApartment.vue';
 import Apartments from '@/pages/Apartments.vue';
 import SingleCard from '../SingleCard.vue';
 import { store } from '../js/store';
+import FilterSearchBar from './FilterSearchBar.vue';
 
 export default {
     name: 'SearchBar',
@@ -58,7 +63,8 @@ export default {
     components: {
         SingleApartment,
         Apartments,
-        SingleCard
+        SingleCard,
+        FilterSearchBar,
     }
 }
 </script>
