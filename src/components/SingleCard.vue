@@ -42,7 +42,7 @@ export default {
         },
         apartment_image: {
             required: true,
-            type: String,
+            type: [String, File]
         },
         linkRoute: {
             required: false,
