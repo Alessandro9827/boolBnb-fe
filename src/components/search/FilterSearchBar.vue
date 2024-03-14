@@ -6,12 +6,16 @@
     </button>
 
     <!-- Modal -->
-    <div class="modal-dialog modal-dialog-scrollable modal" :class="{ 'is-active': showModal }">
+    <div class="modal" :class="{ 'is-active': showModal }">
       <div class="modal-background" @click="closeModal"></div>
       <div class="modal-content">
         <!-- Contenuto della modale -->
         <div class="box">
-          <p>Contenuto della modale...</p>
+          <ul>
+            <li v-for="service in services" :title="service.name">
+
+            </li>
+          </ul>
         </div>
       </div>
       <button class="modal-close is-large" aria-label="close" @click="closeModal"></button>
@@ -20,23 +24,39 @@
 </template>
 
 <script>
+// import axios from 'axios';
 export default {
   data() {
     return {
       showModal: false,
+      services: []
     };
   },
   methods: {
     closeModal() {
       this.showModal = false;
-    }
+    },
+    // getServices(){
+    //         axios.get('http://127.0.0.1:8000/api/guest/services/search', {
+    //             params: {
+    //                 //address: this.search,
+    //                 //title: title,
+    //                 //address: address,
+    //             }
+    //         })
+    //         .then((response) => {
+    //             console.log(response.data.results);
+    //             this.services = response.data.results;
+
+    //         })
+    //     }
   }
 };
 </script>
 
 <style>
 /* Stili per la modale */
-/*.modal {
+.modal {
   display: none;
   position: fixed;
   z-index: 9999;
