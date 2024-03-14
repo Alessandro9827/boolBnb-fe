@@ -3,11 +3,13 @@
         <section class="row justify-content-center">
             <SingleCard class="p-0 col-12 mx-4 my-5" :title="apartment.title" :apartment_image="apartment.img" :description="apartment.description" :fullLength="true"
             />
+            <ContactForm/>
         </section>
     </main>
 </template>
 <script>
 import SingleCard from '@/components/SingleCard.vue';
+import ContactForm from './ContactForm.vue';
 import axios from 'axios';
 
 export default {
@@ -36,7 +38,8 @@ export default {
         }
     },
     components:{
-        SingleCard
+        SingleCard,
+        ContactForm
     },
 
     created(){
