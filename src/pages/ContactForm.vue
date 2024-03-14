@@ -85,7 +85,7 @@ export default {
 
             this.errors = {};
 
-            axios.post('http://127.0.0.1:8000/api/contact-us', fillingData)
+            axios.post(`http://127.0.0.1:8000/api/contact-us/${this.$route.params.id}`, fillingData)
                 
             
             .then((response) => {
