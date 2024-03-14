@@ -1,19 +1,24 @@
 <template lang="">
     <header>
         <div class=" container" data-bs-theme="dark">
-            <div class="row">
-                <nav calss="navbar navbar-expand-lg col-12" id="boolBnB-logo">
-                    <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
-                    <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
-                        <span class="bnb">
-                            boolbnb
-                        </span>
-                    </router-link>
-                </nav>
-                <SearchBar/>
-                
+            <div class="row ">
+                    <div class="col-4 m-4">
+                        <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
+                        <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
+                            <span class="bnb">
+                                boolbnb
+                            </span>
+                        </router-link>
+                    </div>
+                    <div class="col-6 m-4">
+                        <router-link :to="{name: linkItems[1].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
+                            <span class="bnb">
+                                {{linkItems[1].label}}
+                            </span>
+                        </router-link>
+                    </div>
             </div>
-        
+            
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ">
                     <li class="nav-item " v-for=" (link,index) in linkItems " :key="index">
@@ -37,6 +42,10 @@ export default {
                 {
                     label: 'Apartments',
                     routerName: 'apartments'
+                },
+                {
+                    label: 'Search',
+                    routerName: 'apartments-search'
                 },
             ]
         }

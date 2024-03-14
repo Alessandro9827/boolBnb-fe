@@ -1,25 +1,21 @@
 <template lang="">
-    <!-- <div class="container-fluid"> -->
-        <!-- <div class="row justify-content-center"> -->
-            <div class="col-4 input-group m-4">
-                <input type="text" class="form-control rounded-pill" id="floatingInput" placeholder="Cerca destinazione" aria-describedby="button-addon2"
-                    v-model="queryString" @keyup="getApartments(queryString)" >
-                <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2"@click="getApartments(queryString)">Cerca</button>
-            </div>
-        <!-- </div> -->
-    <!-- </div> -->
-        <div class="container">
-            <div class="row justify-content-center">
-                <SingleCard class="p-0 col-3 mx-4 my-5" v-for="apartment in apartments" :key="apartment.id"
-                :title="apartment.title" :apartment_image="apartment.img" :address="apartment.address" :description="apartment.description" :fullLength="true" 
-                linkLabel="Read more..."
-                :linkRoute="{name: 'apartments', params: { id: apartment.id}}" />
+     <div id="my_container">
+        <div class="d-flex justify-content-center">
+            <div class="col-6 form-floating mb-3 d-flex">
+                <input type="text" class="form-control rounded-pill" id="floatingInput"  v-model="queryString" @keyup="getApartments(queryString)">
+                <label for="floatingInput">Search by city</label>
+                <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2" @click="getApartments(queryString)">Cerca</button>
             </div>
         </div>
-
-    
-    
-    
+    </div> 
+    <div class="container">
+        <div class="row justify-content-center">
+            <SingleCard class="p-0 col-3 mx-4 my-5" v-for="apartment in apartments" :key="apartment.id"
+            :title="apartment.title" :apartment_image="apartment.img" :address="apartment.address" :description="apartment.description" :fullLength="true" 
+            linkLabel="Read more..."
+            :linkRoute="{name: 'apartments', params: { id: apartment.id}}" />
+        </div>
+    </div>
 </template>
 
 <script>
@@ -77,5 +73,9 @@ export default {
 
     .input-group{
         width: 50%;
+    }
+    div#my_container {
+        width: 80%;
+        margin: 0 auto;
     }
 </style>
