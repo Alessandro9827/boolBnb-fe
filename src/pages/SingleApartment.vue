@@ -1,7 +1,7 @@
 <template lang="">
     <main class="container">
         <section class="row justify-content-center">
-            <SingleCard class="p-0 col-12 mx-4 my-5" :title="apartment.title" :apartment_image="apartment_img" :description="apartment.description" :fullLength="true"
+            <SingleCard class="p-0 col-12 mx-4 my-5" :title="apartment.title" :apartment_image="apartment.img" :description="apartment.description" :fullLength="true"
             />
         </section>
     </main>
@@ -20,7 +20,7 @@ export default {
     },
     methods:{
         getApartment(){
-            axios.get(`http://127.0.0.1:8000/guest/apartments/${this.$route.params.id}`, {
+            axios.get(`http://127.0.0.1:8000/api/guest/apartments/${this.$route.params.id}`, {
                 params: {
                 }
             })
@@ -31,7 +31,7 @@ export default {
             })
             .catch(function (error) {
                 console.warn(error);
-                // this.$router.push({ name: 'not-found' })
+                //this.$router.push({ name: 'not-found' })
             })
         }
     },
