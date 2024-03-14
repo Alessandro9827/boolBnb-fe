@@ -78,5 +78,5 @@ export default {
   font-size: 1.5rem;
   cursor: pointer;
   color: #333;
-}
+}*/
 </style>
