@@ -9,6 +9,11 @@
                             boolbnb
                         </span>
                     </router-link>
+                    <router-link :to="{name: linkItems[1].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
+                        <span class="">
+                            Contact Us
+                        </span>
+                    </router-link>
                 </nav>
                 <SearchBar/>
                 
@@ -37,6 +42,10 @@ export default {
                 {
                     label: 'Apartments',
                     routerName: 'apartments'
+                },
+                {
+                    label: 'Contact US',
+                    routerName: 'contact-us'
                 },
             ]
         }
