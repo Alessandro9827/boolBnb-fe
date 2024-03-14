@@ -5,7 +5,7 @@
                
             </div>
             <SingleCard class="card p-0 col-3 mx-4 my-5" v-for="apartment in apartments" :key="apartment.id"
-                :title="apartment.title" :apartment_image="apartment.img" :description="apartment.description" :linkRoute="{ name: 'single-apartment', params: { id: apartment.id }}" linkLabel="Read more..."
+                :title="apartment.title" :apartment_image="apartment.img" :description="apartment.description || ''" :linkRoute="{ name: 'single-apartment', params: { id: apartment.id }}" linkLabel="Read more..."
             />
         </section>
     </main>
@@ -34,7 +34,6 @@ export default {
             })
             .catch(function (error) {
                 console.warn(error);
-                this.$router.push({ name: 'not-found' })
             })
         }
     },

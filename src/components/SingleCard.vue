@@ -8,7 +8,7 @@
 
             <img v-if="apartment_image" :src="apartment_image" class="card-img-top mb-3" :class="fullLength ? '' : 'image-preview'" alt="...">
             
-            <p class="card-text" v-if="fullLength">
+            <p class="card-text" v-if="fullLength && description">
                 {{ description }}
             </p>
             <p v-else>
