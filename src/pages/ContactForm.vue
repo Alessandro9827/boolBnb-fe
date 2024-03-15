@@ -104,7 +104,10 @@ export default {
                 console.warn(error);
                 
             })
-
+            // if (this.errors === response.data.errors) {
+            // }else {
+            //     this.resetFields();
+            // }
         },
         resetFields(){
         this.name = '';
