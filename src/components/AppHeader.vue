@@ -17,13 +17,13 @@
                             </span>
                         </router-link>
                     </div>
-                    <div class="col-4 mt-4">
+                    <!-- <div class="col-4 mt-4">
                         <router-link :to="{name: linkItems[2].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
                             <span class="">
                                 Contact Us
                             </span>
                         </router-link>
-                    </div>
+                    </div> -->
             </div>
             
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -54,10 +54,10 @@ export default {
                     label: 'Search',
                     routerName: 'apartments-search'
                 },
-                {
-                    label: 'Contact US',
-                    routerName: 'contact-us'
-                },
+                // {
+                //     label: 'Contact US',
+                //     routerName: 'contact-us'
+                // },
             ]
         }
     },
