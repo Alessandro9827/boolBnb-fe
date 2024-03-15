@@ -12,9 +12,16 @@
         <!-- Contenuto della modale -->
         <div class="box">
           <ul>
-            <li v-for="service in services" :title="service.name">
+            <div>
+              <input type="checkbox" id="wifi" class="custom-checkbox" v-model="checkedFilters" value="wi-fi">
+              <label for="wifi">Wi-Fi</label>
 
-            </li>
+              <input type="checkbox" id="parking" class="custom-checkbox" v-model="checkedFilters" value="parking">
+              <label for="parking">Parking</label>
+
+              <!-- Aggiungi altre checkbox per gli altri servizi -->
+
+            </div>
           </ul>
         </div>
       </div>
@@ -24,32 +31,23 @@
 </template>
 
 <script>
-// import axios from 'axios';
 export default {
+  emits: ['check-filter'],
   data() {
     return {
       showModal: false,
-      services: []
+      checkedFilters: ['wi-fi', 'parking', 'sauna'] // Filtri iniziali
     };
   },
   methods: {
+    checkFilter() {
+      // Emetti l'evento con i filtri selezionati
+      this.$emit('check-filter', this.checkedFilters);
+    },
+
     closeModal() {
       this.showModal = false;
-    },
-    // getServices(){
-    //         axios.get('http://127.0.0.1:8000/api/guest/services/search', {
-    //             params: {
-    //                 //address: this.search,
-    //                 //title: title,
-    //                 //address: address,
-    //             }
-    //         })
-    //         .then((response) => {
-    //             console.log(response.data.results);
-    //             this.services = response.data.results;
-
-    //         })
-    //     }
+    }
   }
 };
 </script>
@@ -85,6 +83,7 @@ export default {
 .modal-content {
   background-color: #fff;
   padding: 20px;
+  width: 50%;
   border-radius: 5px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
@@ -100,3 +99,5 @@ export default {
   color: #333;
 }
 </style>
+
+

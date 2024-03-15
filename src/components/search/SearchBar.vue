@@ -16,7 +16,7 @@
             :linkRoute="{name: 'single-apartment', params: { id: apartment.id}}" />
         </div>
         <div class='row'>
-            <FilterSearchBar/>
+            <FilterSearchBar @check-filter = "updateDataByFilter" />
         </div>
     </div>
 
@@ -36,10 +36,13 @@ export default {
         return{
             apartments: [],
             queryString: '',
-            //title: '',
+            filter: ['wi-fi', 'parking', 'sauna']
         }
     },
     methods:{
+        updateDataByFilter(updatedOptions){
+            this.filter= updatedOptions
+        },
         getApartments(address){
             axios.get('http://127.0.0.1:8000/api/guest/apartments/search', {
                 params: {
