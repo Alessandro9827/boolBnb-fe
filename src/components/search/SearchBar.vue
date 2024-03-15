@@ -16,7 +16,10 @@
             :linkRoute="{name: 'single-apartment', params: { id: apartment.id}}" />
         </div>
         <div class='row'>
-            <FilterSearchBar @check-filter = "updateDataByFilter" />
+            <FilterSearchBar @check-filter = "updateDataByFilter" 
+            v-for="apartment in apartments" :no_bathrooms="apartment.no_bathrooms" :no_beds="apartment.no_beds"
+            :no_rooms="apartment.no_rooms" :services="apartment.services"
+            />
         </div>
     </div>
 
@@ -35,10 +38,13 @@ export default {
     data(){
         return{
             apartments: [],
+            // services: [],
             queryString: '',
             filter: ['wi-fi', 'parking', 'sauna']
-        }
+        }     
     },
+
+
     methods:{
         updateDataByFilter(updatedOptions){
             this.filter= updatedOptions

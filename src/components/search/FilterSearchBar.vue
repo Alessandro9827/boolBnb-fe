@@ -36,9 +36,37 @@ export default {
   data() {
     return {
       showModal: false,
-      checkedFilters: ['wi-fi', 'parking', 'sauna'] // Filtri iniziali
+      checkedFilters: ['wi-fi', 'parking', 'sauna']
     };
   },
+
+  props: {
+            no_beds: {
+                required: true,
+                type: Number
+            },
+
+            // check_filter:{
+            //   required: true,
+            //   type: String
+            // },
+
+            no_rooms:{
+                required: true,
+                type: Number
+            },
+
+            no_bathrooms:{
+                required: true,
+                type: Number
+            },
+
+            services: {   
+                required: true,
+                type: Array
+            } 
+        },
+
   methods: {
     checkFilter() {
       // Emetti l'evento con i filtri selezionati
