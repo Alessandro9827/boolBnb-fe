@@ -1,10 +1,14 @@
 <template lang="">
      <div id="my_container">
         <div class="d-flex justify-content-center">
-            <div class="col-6 form-floating mb-3 d-flex">
-                <input type="text" class="form-control rounded-pill" id="floatingInput"  v-model="queryString" @keyup="getApartments(queryString)">
-                <label for="floatingInput">Search by city</label>
+            <div class="col-4 form-floating m-4 d-flex">
+                <input type="text" class="form-control rounded-pill" id="floatingInput"  v-model="address" @keyup.enter="getApartments()">
+                <label for="floatingInput">Search by address</label>
                 <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2" @click="getApartments(queryString)">Cerca</button>
+            </div>
+            <div class="col-4 m-4">
+                <label for="range" class="form-label mb-3">Distanza: <span class="primary-color fw-bold ">{{ range }} km</span></label>
+                <input type="range" v-model="range" class="form-range" min="2" max="20" step="1" id="range">
             </div>
         </div>
     </div> 
@@ -39,7 +43,8 @@ export default {
         return{
             apartments: [],
             // services: [],
-            queryString: '',
+            address: '',
+            range: 10,
             filter: ['wi-fi', 'parking', 'sauna']
         }     
     },
@@ -49,22 +54,22 @@ export default {
         updateDataByFilter(updatedOptions){
             this.filter= updatedOptions
         },
-        getApartments(address){
+        getApartments(){
             axios.get('http://127.0.0.1:8000/api/guest/apartments/search', {
                 params: {
                     //address: this.search,
                     //title: title,
-                    address: address,
+                    address: this.address,
+                    range: this.range,
                 }
             })
             .then((response) => {
                 console.log(response.data.results);
                 this.apartments = response.data.results;
-
             })
             .catch(function (error) {
                 console.warn(error);
-                this.$router.push({ name: 'not-found' })
+                // this.$router.push({ name: 'not-found' })
             })
         }
     },
