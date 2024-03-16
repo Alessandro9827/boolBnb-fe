@@ -1,9 +1,27 @@
-<template lang="">
+<template >
     <div>
         <div class="card-body">
             <h1 class="card-title mb-3">
                 {{ title }}
             </h1>
+            <p>
+                Owner info:
+                <ul>
+                    <li>
+                        {{ user_name}}.
+                    </li>            
+                    <li>
+                        {{ user_surname}}.
+                    </li>
+                    <li>
+                        {{ user_email}}.
+                    </li>
+                </ul>
+
+
+                
+
+            </p>
 
 
             <img v-if="apartment_image" :src="apartment_image" class="card-img-top mb-3" :class="fullLength ? '' : 'image-preview'" alt="...">
@@ -14,6 +32,28 @@
             <p v-else>
                 {{ description.substring(0, 120) }}...
             </p>
+            <p>
+                The house has:
+                <ul>
+                    <li>
+                        {{ no_rooms}} rooms
+                    </li>            
+                    <li>
+                        {{ no_beds}} beds
+                    </li>
+                    <li>
+                        {{ no_bathrooms}} bathrooms
+                    </li>
+                </ul>
+            </p>
+            <p>
+                The house has: {{ square_meters }} square meters.
+            </p>
+            <p>
+                The house address is: {{ address }}.
+            </p>
+            
+    
 
 
             <div class="w-100 d-flex mb-3" v-if="linkRoute">
@@ -34,6 +74,38 @@ export default {
     props:{
         title: {
             required: true,
+            type: String,
+        },
+        user_name: {
+            required: true,
+            type: String,
+        },
+        user_surname: {
+            required: true,
+            type: String,
+        },
+        user_email: {
+            required: true,
+            type: String,
+        },
+        no_rooms: {
+            required: true,
+            type: Number,
+        },
+        no_beds: {
+            required: true,
+            type: Number,
+        },
+        no_bathrooms: {
+            required: true,
+            type: Number,
+        },
+        square_meters: {
+            required: true,
+            type: Number,
+        },
+        address: {
+            required: false,
             type: String,
         },
         description: {
