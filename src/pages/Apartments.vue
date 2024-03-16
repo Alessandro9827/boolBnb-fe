@@ -40,8 +40,8 @@ export default {
                 }
             })
             .then((response) => {
-                console.log(response.data.results.data);
-                this.apartments = response.data.results.data;
+                console.log(response.data.results);
+                this.apartments = response.data.results;
 
             })
             .catch(function (error) {
