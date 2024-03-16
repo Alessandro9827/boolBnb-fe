@@ -5,7 +5,19 @@
                
             </div>
             <SingleCard class="card p-0 col-3 mx-4 my-5" v-for="apartment in apartments" :key="apartment.id"
-                :title="apartment.title" :apartment_image="apartment.img"  :description="apartment.description || ''" :linkRoute="{ name: 'single-apartment', params: { id: apartment.id }}" linkLabel="Read more..."
+            :user_name="apartment.user.name" 
+            :user_surname="apartment.user.surname" 
+            :user_email="apartment.user.email" 
+            :title="apartment.title" 
+            :apartment_image="apartment.img" 
+            :no_rooms="apartment.no_rooms" 
+            :no_beds="apartment.no_beds" 
+            :no_bathrooms="apartment.no_bathrooms" 
+            :square_meters="apartment.square_meters" 
+            :address="apartment.address" 
+            :description="apartment.description || ''" 
+            :linkRoute="{ name: 'single-apartment', params: { id: apartment.id }}" 
+            linkLabel="Read more..."
             />
         </section>
     </main>
@@ -28,8 +40,8 @@ export default {
                 }
             })
             .then((response) => {
-                console.log(response.data.results.data);
-                this.apartments = response.data.results.data;
+                console.log(response.data.results);
+                this.apartments = response.data.results;
 
             })
             .catch(function (error) {
