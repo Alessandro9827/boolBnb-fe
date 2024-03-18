@@ -36,6 +36,11 @@ const router = createRouter({
             name: 'apartments-search',
             component: SearchBar
         },
+        {
+            path: '/payment',
+            name: 'payment',
+            component: Payment
+        },
     ]
 
 });
