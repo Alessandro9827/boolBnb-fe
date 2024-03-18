@@ -74,6 +74,10 @@
                                         </label>
                                     </div>
                                 </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn" data-bs-dismiss="modal" @click="getApartments(this.rooms, this.beds, this.filteredServices, this.address, this.range);">Mostra</button>
+                                </div>
                               <!-- <input type="checkbox" id="wifi" class="custom-checkbox" v-model="checkedFilters" value="wi-fi">
                               <label for="wifi">Wi-Fi</label> -->
                 
