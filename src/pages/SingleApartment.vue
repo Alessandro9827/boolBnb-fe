@@ -60,14 +60,14 @@ export default {
             const map = tt.map({
                 key: "9B3Txp0d4DICteHUwWohHtaZOMm3WCUY",
                 container: "map",
-                center: [9.187319, 45.469114],
+                center: [this.apartment.longitude, this.apartment.latitude],
                 zoom: 18
             });
             map.addControl(new tt.FullscreenControl());
             map.addControl(new tt.NavigationControl());
             const marker = new tt.Marker({
                 
-            }).setLngLat([9.187319, 45.469114]).addTo(map);
+            }).setLngLat([this.apartment.longitude, this.apartment.latitude]).addTo(map);
             console.log(marker.getElement())
         },
     },
