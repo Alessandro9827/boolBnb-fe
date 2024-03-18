@@ -14,10 +14,11 @@
             :no_beds="apartment.no_beds" 
             :no_bathrooms="apartment.no_bathrooms" 
             :square_meters="apartment.square_meters" 
-            :address="apartment.address" 
+            :address="apartment.address"
+            :price="apartment.price" 
             :description="apartment.description || ''" 
             :linkRoute="{ name: 'single-apartment', params: { id: apartment.id }}" 
-            linkLabel="Read more..."
+            linkLabel="Prenota ora"
             />
         </section>
     </main>

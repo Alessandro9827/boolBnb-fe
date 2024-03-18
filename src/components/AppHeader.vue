@@ -1,5 +1,6 @@
 <template lang="">
     <header>
+        <!--
         <div class=" container" data-bs-theme="dark">
             <div class="row ">
                     <div class="col-4 mt-4">
@@ -23,7 +24,7 @@
                                 Contact Us
                             </span>
                         </router-link>
-                    </div> -->
+                    </div> --><!--
             </div>
             
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -35,6 +36,43 @@
             </div>
             
         </div>
+    -->
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <div class="col-4 mt-4">
+                    <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
+                    <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
+                        <span class="bnb">
+                            boolbnb
+                        </span>
+                    </router-link>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link :to="{name: linkItems[1].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
+                                <a class="nav-link" href="#">
+                                    {{linkItems[1].label}}
+                                </a>
+                            </router-link>
+                        </li>
+                        <!--
+                        <li>
+                            <router-link :to="{name: linkItems[2].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
+                                <a class="nav-link" href="#">Contact Us</a>
+                            </router-link>
+                        </li>
+                    -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
     </header>
 </template>
 <script>
@@ -71,7 +109,7 @@ img.logo{
 }
 span.bnb{
     color: #FF385C;
-    height: 100%;
+    //height: 100%;
 }
 
 nav#boolBnB-logo{

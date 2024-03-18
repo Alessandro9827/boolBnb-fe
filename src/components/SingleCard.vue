@@ -1,4 +1,5 @@
 <template >
+    <!--
     <div>
         <div class="card-body">
             <h1 class="card-title mb-3">
@@ -59,7 +60,48 @@
             </div>
         </div>
     </div>
+    style="width: 17rem;"
+    -->
+    <main class="container">
+        <section class="row justify-content-center">
+                <div class="card">
+                    <div class="img-container rounded">
+                        <img v-if="apartment_image" :src="apartment_image" class="card-img-top mb-3 rounded" :class="fullLength ? '' : 'image-preview'" alt="...">
+                        <div class="sponsor-text-container">
+                            <span>Sponsorizzato</span>
+                        </div>
+                    </div>
+                    <!--
+                        <img v-if="apartment_image" :src="apartment_image" class="card-img-top mb-3 rounded" :class="fullLength ? '' : 'image-preview'" alt="...">
+                    -->
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ title }}
+                        </h5>
+                        <p class="address">
+                            {{ address }}
+                        </p>
+                        <p class="price-container">
+                            <span class="price">
+                                {{ price }}&euro;
+                            </span>
+                            <span class="text">
+                                notte.
+                            </span>
+                        </p>
+                        <div class="d-flex mb-3" v-if="linkRoute">
+                            <router-link :to="linkRoute" class="btn btn-outline-dark">
+                                {{ linkLabel }}
+                            </router-link>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </main>
+    
+    
 </template>
+
 <script>
 export default {
     data() {
@@ -104,6 +146,10 @@ export default {
             required: false,
             type: String,
         },
+        price: {
+            required: true,
+            type: String,
+        },
         description: {
             required: false,
             type: String,
@@ -128,13 +174,59 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    img{
-        height: 400px;
-        object-fit: cover;
-        margin-bottom: 3rem;
+
+    .card{
+        border: 0;
     }
 
-    img.image-preview{
-        height: 200px;
+    .card-body{
+        //margin: 0;
+        padding: .5rem 0 0 0 ;
+        justify-content: flex-start;
     }
+
+    .img-container{
+        position: relative;
+        overflow: hidden;
+    }
+
+    img{
+        object-fit: cover;
+        height: 340px;
+        width: 340px;
+    }
+
+    .sponsor-text-container {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        background-color: white;
+        border: 1px solid white;
+        border-radius: 35px;
+        padding: .1rem .5rem;
+    }
+
+    //img.image-preview {
+        //height: 200px;
+    //}
+    //img{
+        //height: 400px;
+        //object-fit: cover;
+        //margin-bottom: 3rem;
+    //}
+    
+    
+
+    .address {
+        color: #717171;
+        margin: 0 0 .5rem 0;
+    }
+
+    .price {
+        font-weight: 600;
+    }
+    .text {
+        font-weight: 300;
+    }
+    
 </style>
