@@ -1,4 +1,5 @@
 <template lang="">
+    <!--
     <main class="container">
         <section class="row justify-content-center">
             <SingleCard class="p-0 col-12 mx-4 my-5" 
@@ -24,6 +25,57 @@
                 </div>
             </div>
             <ContactForm/>
+        </section>
+    </main>
+    -->
+
+    <main class="container">
+        <section class="row justify-content-center">
+            <div class="card">
+                <h1 class="card-title">
+                    {{ apartment.title }}
+                </h1>
+                <div class="img-container">
+                    <img v-if="apartment.img" :src="apartment.img" class="card-img-top mb-3 rounded" :class="fullLength ? '' : 'image-preview'" alt="...">
+                </div>
+                <div class="card-body">
+                    <p class="address">
+                        {{ apartment.address }}
+                    </p>
+                    <p class="info-container">
+                        <span class="n-rooms">
+                            {{ apartment.no_rooms }} rooms,
+                        </span>
+                        <span class="n-beds">
+                            {{ apartment.no_beds }} beds,
+                        </span>
+                        <span class="n-bathrooms">
+                            {{ apartment.no_bathrooms }} bathrooms,
+                        </span>
+                    </p>
+                    <!--
+                    <div class="d-flex mb-3" v-if="linkRoute">
+                        <router-link :to="linkRoute" class="btn btn-outline-danger">
+                            {{ linkLabel }}
+                        </router-link>
+                    </div>
+                    -->
+                    <div class="user-info">
+                        <p>
+                            <span class="info-text">
+                                Hosted by
+                            </span>
+                            <span class="info-name">
+                                {{ apartment.user.surname}} {{ apartment.user.name}}
+                            </span>
+                        </p>
+                    </div>
+                    <!--Sezione dei filtri-->
+                </div>
+                <p>
+                    {{ apartment.description}}
+                </p>
+            </div>
         </section>
     </main>
 </template>
@@ -85,9 +137,21 @@ export default {
     }
 }
 </script>
-<style lang="scss">
-#map {
-    width: 100%;
-    height: 500px;
-}
+<style lang="scss" scoped>
+
+    .img-container {
+        width: 100%;
+        display: flex;
+        
+    }
+    img {
+        justify-content: center;
+        height: 550px;
+        width: 650px;
+    }
+
+    #map {
+        width: 100%;
+        height: 500px;
+    }
 </style>
