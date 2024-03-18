@@ -118,6 +118,7 @@ export default {
             showModal: false,
             apartments: [],
             services: [],
+            filteredServices: [],
             address: '',
             range: 10,
             beds: 0,
@@ -153,13 +154,13 @@ export default {
         },
 
         getServices() {
-            axios.get('http://127.0.0.1:8000/api/services', {
+            axios.get('http://127.0.0.1:8000/api/apartment/services', {
                 params: {
                 }
             })
             .then( response => {
                 console.log(response.data.results);
-                this.services = response.data.results;
+                // this.services = response.data.results;
             })
             .catch(function (error) {
                 console.log(error);
@@ -177,7 +178,8 @@ export default {
     },
 
     created() {
-        this.getServices()
+        this.getServices();
+        this.getApartments(this.rooms, this.beds, this.filteredServices, this.address, this.range);
     },
         
     components: {
