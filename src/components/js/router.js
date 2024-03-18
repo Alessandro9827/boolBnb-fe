@@ -3,6 +3,7 @@ import Apartments from '../../pages/Apartments.vue';
 import ContactForm from '../../pages/ContactForm.vue';
 import SingleApartment from '../../pages/SingleApartment.vue';
 import SearchBar from '../search/SearchBar.vue';
+import Payment from '../Payment.vue';
 
 
 
