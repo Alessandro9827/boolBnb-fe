@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" @click="showModal = true">
+    <button type="button" class="btn btn-outline-danger" @click="showModal = true">
       Choose your filter
     </button>
 
