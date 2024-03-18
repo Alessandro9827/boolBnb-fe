@@ -64,38 +64,38 @@
     -->
     <main class="container">
         <section class="row justify-content-center">
-                <div class="card">
-                    <div class="img-container rounded">
-                        <img v-if="apartment_image" :src="apartment_image" class="card-img-top mb-3 rounded" :class="fullLength ? '' : 'image-preview'" alt="...">
-                        <div class="sponsor-text-container">
-                            <span>Sponsorizzato</span>
-                        </div>
+            <div class="card">
+                <div class="img-container rounded">
+                    <img v-if="apartment_image" :src="apartment_image" class="card-img-top mb-3 rounded" :class="fullLength ? '' : 'image-preview'" alt="...">
+                    <div class="sponsor-text-container">
+                        <span>Sponsorizzato</span>
                     </div>
+                </div>
                     <!--
                         <img v-if="apartment_image" :src="apartment_image" class="card-img-top mb-3 rounded" :class="fullLength ? '' : 'image-preview'" alt="...">
                     -->
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            {{ title }}
-                        </h5>
-                        <p class="address">
-                            {{ address }}
-                        </p>
-                        <p class="price-container">
-                            <span class="price">
-                                {{ price }}&euro;
-                            </span>
-                            <span class="text">
-                                notte.
-                            </span>
-                        </p>
-                        <div class="d-flex mb-3" v-if="linkRoute">
-                            <router-link :to="linkRoute" class="btn btn-outline-dark">
-                                {{ linkLabel }}
-                            </router-link>
-                        </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{ title }}
+                    </h5>
+                    <p class="address">
+                        {{ address }}
+                    </p>
+                    <p class="price-container">
+                        <span class="price">
+                            {{ price }}&euro;
+                        </span>
+                        <span class="text">
+                            night.
+                        </span>
+                    </p>
+                    <div class="d-flex mb-3" v-if="linkRoute">
+                        <router-link :to="linkRoute" class="btn btn-outline-danger">
+                            {{ linkLabel }}
+                        </router-link>
                     </div>
                 </div>
+            </div>
         </section>
     </main>
     

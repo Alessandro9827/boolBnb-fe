@@ -18,7 +18,7 @@
             :price="apartment.price" 
             :description="apartment.description || ''" 
             :linkRoute="{ name: 'single-apartment', params: { id: apartment.id }}" 
-            linkLabel="Prenota ora"
+            linkLabel="Reserve"
             />
         </section>
     </main>
