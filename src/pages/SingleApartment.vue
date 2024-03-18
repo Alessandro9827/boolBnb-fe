@@ -53,6 +53,14 @@
                             {{ apartment.no_bathrooms }} bathrooms,
                         </span>
                     </p>
+                    <p class="price-container">
+                        <span class="price">
+                            {{ apartment.price }}&euro;
+                        </span>
+                        <span class="text">
+                            night.
+                        </span>
+                    </p>
                     <!--
                     <div class="d-flex mb-3" v-if="linkRoute">
                         <router-link :to="linkRoute" class="btn btn-outline-danger">
@@ -69,12 +77,23 @@
                                 {{ apartment.user.surname}} {{ apartment.user.name}}
                             </span>
                         </p>
+                        <ContactForm/>
                     </div>
                     <!--Sezione dei filtri-->
                 </div>
                 <p>
                     {{ apartment.description}}
                 </p>
+                <div class="row pb-5 ">
+                <div class="col-12">
+                    <hr>
+                    <p class="fs-4 fw-semibold mt-4 mb-3">Where you’ll be</p>
+                    <p class="address">
+                        {{ apartment.address }}
+                    </p>
+                    <div id="map"></div>
+                </div>
+            </div>
             </div>
         </section>
     </main>
