@@ -15,9 +15,19 @@
     <div class="container">
         <div class="row justify-content-center">
             <SingleCard class="p-0 col-3 mx-4 my-5" v-for="apartment in apartments" :key="apartment.id"
-            :title="apartment.title" :apartment_image="apartment.img" :address="apartment.address" :description="apartment.description" :fullLength="true" 
-            linkLabel="Read more..."
-            :linkRoute="{name: 'single-apartment', params: { id: apartment.id}}" />
+            :user_name="apartment.user.name" 
+            :user_surname="apartment.user.surname" 
+            :user_email="apartment.user.email" 
+            :title="apartment.title" 
+            :apartment_image="apartment.img" 
+            :no_rooms="apartment.no_rooms" 
+            :no_beds="apartment.no_beds" 
+            :no_bathrooms="apartment.no_bathrooms" 
+            :square_meters="apartment.square_meters" 
+            :address="apartment.address" 
+            :description="apartment.description || ''" 
+            :linkRoute="{ name: 'single-apartment', params: { id: apartment.id }}" 
+            linkLabel="Read more..." />
         </div>
         <div class='row'>
             <FilterSearchBar @check-filter = "updateDataByFilter" 

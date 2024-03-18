@@ -4,6 +4,16 @@
             <h1 class="card-title mb-3">
                 {{ title }}
             </h1>
+
+
+            <img v-if="apartment_image" :src="apartment_image" class="card-img-top mb-3" :class="fullLength ? '' : 'image-preview'" alt="...">
+            
+            <p class="card-text" v-if="fullLength && description">
+                {{ description }}
+            </p>
+            <p v-else>
+                {{ description.substring(0, 120) }}...
+            </p>
             <p>
                 Owner info:
                 <ul>
@@ -17,20 +27,6 @@
                         {{ user_email}}.
                     </li>
                 </ul>
-
-
-                
-
-            </p>
-
-
-            <img v-if="apartment_image" :src="apartment_image" class="card-img-top mb-3" :class="fullLength ? '' : 'image-preview'" alt="...">
-            
-            <p class="card-text" v-if="fullLength && description">
-                {{ description }}
-            </p>
-            <p v-else>
-                {{ description.substring(0, 120) }}...
             </p>
             <p>
                 The house has:
