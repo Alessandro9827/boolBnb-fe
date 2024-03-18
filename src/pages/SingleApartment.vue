@@ -1,6 +1,5 @@
 <template lang="">
     <main class="container">
-        <!--
         <section class="row justify-content-center">
             <SingleCard class="p-0 col-12 mx-4 my-5" 
             :user_name="apartment.user.name" 
@@ -17,40 +16,21 @@
             :description="apartment.description || ''" 
             :fullLength="true"
             />
-            <ContactForm/>
-        </section>
-        -->
-        <section class="row justify-content-center">
-                <div class="card">
-                    <h1 class="card-title">
-                            {{ apartment.title }}
-                        </h1>
-                    <img v-if="apartment.img" :src="apartment.img" class="card-img-top mb-3 rounded" :class="fullLength ? '' : 'image-preview'" alt="...">
-                    <div class="card-body">
-                        <p class="address">
-                            {{ apartment.address }}
-                        </p>
-                        <p class="price-container">
-                            <span class="price">
-                                {{ apartment.price }}&euro;
-                            </span>
-                            <span class="text">
-                                notte.
-                            </span>
-                        </p>
-                        <div class="d-flex mb-3" v-if="linkRoute">
-                            <router-link :to="linkRoute" class="btn btn-outline-dark">
-                                {{ linkLabel }}
-                            </router-link>
-                        </div>
-                    </div>
+            <div class="row pb-5 ">
+                <div class="col-12">
+                    <hr>
+                    <p class="fs-4 fw-semibold mt-4 mb-3">Dove sarai?</p>
+                    <div id="map"></div>
                 </div>
+            </div>
+            <ContactForm/>
         </section>
     </main>
 </template>
 <script>
 import SingleCard from '@/components/SingleCard.vue';
 import ContactForm from './ContactForm.vue';
+import tt from "@tomtom-international/web-sdk-maps";
 import axios from 'axios';
 
 export default {
@@ -60,68 +40,6 @@ export default {
             apartment: {},
             id: ''
         }
-    },
-    props:{
-        title: {
-            required: true,
-            type: String,
-        },
-        user_name: {
-            required: true,
-            type: String,
-        },
-        user_surname: {
-            required: true,
-            type: String,
-        },
-        user_email: {
-            required: true,
-            type: String,
-        },
-        no_rooms: {
-            required: true,
-            type: Number,
-        },
-        no_beds: {
-            required: true,
-            type: Number,
-        },
-        no_bathrooms: {
-            required: true,
-            type: Number,
-        },
-        square_meters: {
-            required: true,
-            type: Number,
-        },
-        address: {
-            required: false,
-            type: String,
-        },
-        price: {
-            required: true,
-            type: String,
-        },
-        description: {
-            required: false,
-            type: String,
-        },
-        apartment_image: {
-            required: true,
-            type: [String, File]
-        },
-        linkRoute: {
-            required: false,
-            type: [ Object, String ]
-        },
-        linkLabel: {
-            required: false,
-            type: String,
-        },
-        fullLength: {
-            required: false,
-            type: Boolean,
-        },
     },
     methods:{
         getApartment(){
@@ -138,7 +56,24 @@ export default {
                 console.warn(error);
                 //this.$router.push({ name: 'not-found' })
             })
-        }
+        },
+        createMap() {
+            const map = tt.map({
+                key: "9B3Txp0d4DICteHUwWohHtaZOMm3WCUY",
+                container: "map",
+                center: [this.apartment.longitude, this.apartment.latitude],
+                zoom: 18
+            });
+            map.addControl(new tt.FullscreenControl());
+            map.addControl(new tt.NavigationControl());
+            const marker = new tt.Marker({
+                
+            }).setLngLat([this.apartment.longitude, this.apartment.latitude]).addTo(map);
+            console.log(marker.getElement())
+        },
+    },
+    mounted() {
+        this.createMap();
     },
     components:{
         SingleCard,
@@ -150,7 +85,7 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 #map {
     width: 100%;
     height: 500px;
