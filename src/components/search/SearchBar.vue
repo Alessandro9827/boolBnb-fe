@@ -12,6 +12,7 @@
             </div>
         </div>
     </div> 
+    
     <div class="container">
         <div class="row justify-content-center">
             <SingleCard class="p-0 col-3 mx-4 my-5" v-for="apartment in apartments" :key="apartment.id"
