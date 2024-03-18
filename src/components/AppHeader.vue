@@ -67,7 +67,6 @@
                                 <a class="nav-link" href="#">Contact Us</a>
                             </router-link>
                         </li>
-                        prova
                     -->
                     </ul>
                 </div>
