@@ -4,11 +4,17 @@
             <div class="col-4 form-floating m-4 d-flex">
                 <input type="text" class="form-control rounded-pill" id="floatingInput"  v-model="address" @keyup.enter="getApartments()">
                 <label for="floatingInput">Search by address</label>
-                <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2" @click="getApartments(queryString)">Cerca</button>
+                <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2" @click="getApartments()">Cerca</button>
             </div>
-            <div class="col-4 m-4">
-                <label for="range" class="form-label mb-3">Distanza: <span class="primary-color fw-bold ">{{ range }} km</span></label>
-                <input type="range" v-model="range" class="form-range" min="2" max="20" step="1" id="range">
+            <div class="col-4 d-flex m-4">
+                <div class="me-3">
+                    <label for="range" class="form-label mb-3">Distanza: <span class="primary-color fw-bold ">{{ range }} km</span></label>
+                    <input type="range" v-model="range" class="form-range" min="2" max="20" step="1" id="range">
+                </div>
+                <div class="me-3">
+                    <label for="beds" class="form-label mb-3">Number of beds: <!-- <span class="primary-color fw-bold ">{{ range }} km</span> --></label>
+                    <input type="number" v-model="beds" class="form-control" step="1" id="beds">
+                </div>
             </div>
         </div>
     </div> 
@@ -55,7 +61,8 @@ export default {
             // services: [],
             address: '',
             range: 10,
-            filter: ['wi-fi', 'parking', 'sauna']
+            beds: 0,
+            // filter: ['wi-fi', 'parking', 'sauna']
         }     
     },
 
@@ -67,9 +74,8 @@ export default {
         getApartments(){
             axios.get('http://127.0.0.1:8000/api/guest/apartments/search', {
                 params: {
-                    //address: this.search,
-                    //title: title,
                     address: this.address,
+                    beds: this.beds,
                     range: this.range,
                 }
             })
