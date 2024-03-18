@@ -1,7 +1,7 @@
 <template lang="">
      <div id="my_container">
-        <div class="d-flex justify-content-center">
-            <div class="col-4 form-floating m-4 d-flex">
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="col-4 form-floating m-4 d-flex search-bar">
                 <input type="text" class="form-control rounded-pill" id="floatingInput"  v-model="address" @keyup.enter="getApartments()">
                 <label for="floatingInput">Search by address</label>
                 <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2" @click="getApartments()">Cerca</button>
@@ -9,6 +9,72 @@
 
             <div>
                <!-- angolo prove -->
+               <div class='row'>
+                    <div>
+                        <!-- Button trigger modal -->
+                        <button type="button btn-filter" class="btn btn-primary" @click="showModal = true">
+                            Choose your filter
+                        </button>
+                    
+                        <!-- Modal -->
+                        <div class="modal" :class="{ 'is-active': showModal }">
+                            <div class="modal-background" @click="closeModal"></div>
+                            <div class="modal-content">
+                            <!-- Contenuto della modale -->
+                            <div class="box">
+                                <ul>
+                                <div>
+                                    <div class="col-4 m-4">
+                                        <div class="me-3">
+                                            <label for="range" class="form-label mb-3">Distanza: <span class="primary-color fw-bold ">{{ range }} km</span></label>
+                                            <input type="range" v-model="range" class="form-range" min="2" max="20" step="1" id="range">
+                                        </div> 
+                                        <div class="me-3">
+                                            <label for="beds" class="form-label mb-3">Number of beds: <!-- <span class="primary-color fw-bold ">{{ range }} km</span> --></label>
+                                            <input type="number" v-model="beds" class="form-control" step="1" id="beds">
+                                        </div>
+                                        <div class="me-3">
+                                            <label for="rooms" class="form-label mb-3">Number of rooms: <!-- <span class="primary-color fw-bold ">{{ range }} km</span> --></label>
+                                            <input type="number" v-model="rooms" class="form-control" step="1" id="rooms">
+                                        </div>
+                                        <div class="me-3">
+                                            <label for="bathrooms" class="form-label mb-3">Number of bathrooms: <!-- <span class="primary-color fw-bold ">{{ range }} km</span> --></label>
+                                            <input type="number" v-model="bathrooms" class="form-control" step="1" id="bathrooms">
+                                        </div>
+
+
+
+                                        <div class="col-5 mb-3" v-for="service in services">
+                                            <div class="form-check">
+                                                <input class="form-check-input my-check" type="checkbox" v-model="filteredServices" :value="service.id" :id="'Check-' + service.id">
+                                                <label class="form-check-label" :for="'Check-' + services.id">
+                                                    {{ service.name }}
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn" data-bs-dismiss="modal" @click="getApartments(this.rooms, this.beds, this.filteredServices, this.address, this.range);">Mostra</button>
+                                        </div>
+                                        <!-- <input type="checkbox" id="wifi" class="custom-checkbox" v-model="checkedFilters" value="wi-fi">
+                                        <label for="wifi">Wi-Fi</label> -->
+                        
+                                        <!-- <input type="checkbox" id="parking" class="custom-checkbox" v-model="checkedFilters" value="parking">
+                                        <label for="parking">Parking</label> -->
+                        
+                                        <!-- Aggiungi altre checkbox per gli altri servizi -->
+                                        
+                                        
+                                    </div>
+                                </div>
+                                </ul>
+                            </div>
+                            </div>
+                            <button class="modal-close is-large" aria-label="close" @click="closeModal"></button>
+                        </div>
+                        </div>
+
+      </div>
             </div>
            
         </div>
@@ -26,10 +92,12 @@
             :no_beds="apartment.no_beds" 
             :no_bathrooms="apartment.no_bathrooms" 
             :square_meters="apartment.square_meters" 
-            :address="apartment.address" 
+            :address="apartment.address"
+            :price="apartment.price" 
             :description="apartment.description || ''" 
             :linkRoute="{ name: 'single-apartment', params: { id: apartment.id }}" 
-            linkLabel="Read more..." />
+            linkLabel="Reserve" />
+
         </div>
         <div class='row'>
           
@@ -193,10 +261,19 @@ export default {
 
 <style lang="scss" scoped>
 
-    .container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+    //.container {
+    //    width: 100%;
+    //    display: flex;
+    //    justify-content: center;
+    //}
+
+    .rounded-pill{
+        border-color: white;
+    }
+
+    .search-bar{
+        border: 1px solid lightgrey;
+        border-radius: 35px;
     }
 
     .input-group{
@@ -208,6 +285,7 @@ export default {
     }
 
     /* Stili per la modale */
+
 .modal {
     display: none;
     position: fixed;
