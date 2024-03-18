@@ -32,10 +32,8 @@
 
 <script>
 export default {
-  emits: ['check-filter'],
   data() {
     return {
-      showModal: false,
       checkedFilters: ['wi-fi', 'parking', 'sauna']
     };
   },
