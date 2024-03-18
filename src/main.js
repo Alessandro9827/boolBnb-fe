@@ -1,4 +1,4 @@
-
+import 'bootstrap/js/index.umd';
 import { createApp } from 'vue';
 import { router } from './components/js/router';
 import './style/general.scss';
