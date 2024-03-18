@@ -12,7 +12,7 @@
                <div class='row'>
                     <div>
                         <!-- Button trigger modal -->
-                        <button type="button btn-filter" class="btn btn-primary" @click="showModal = true">
+                        <button type="button btn-filter" class="btn btn-danger rounded-btn" @click="showModal = true">
                             Choose your filter
                         </button>
                     
@@ -103,7 +103,7 @@
           
             <div>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" @click="showModal = true">
+                <button type="button" class="btn btn-outline-danger" @click="showModal = true">
                   Choose your filter
                 </button>
             
@@ -274,6 +274,10 @@ export default {
     .search-bar{
         border: 1px solid lightgrey;
         border-radius: 35px;
+    }
+
+    .rounded-btn {
+        border-radius: 15px;
     }
 
     .input-group{
