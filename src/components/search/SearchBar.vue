@@ -1,31 +1,32 @@
 <template lang="">
-     <div id="my_container">
-        <div class="d-flex justify-content-center">
-            <div class="col-4 form-floating m-4 d-flex">
-                <input type="text" class="form-control rounded-pill" id="floatingInput"  v-model="address" @keyup.enter="getApartments()">
-                <label for="floatingInput">Search by address</label>
-                <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2" @click="getApartments(queryString)">Cerca</button>
+        <div id="my_container">
+            <div class="d-flex justify-content-center">
+                <div class="col-4 form-floating m-4 d-flex">
+                    <input type="text" class="form-control rounded-pill" id="floatingInput"  v-model="address" @keyup.enter="getApartments()">
+                    <label for="floatingInput">Search by address</label>
+                    <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2" @click="getApartments(queryString)">Cerca</button>
+                </div>
+                <div class="col-4 m-4">
+                    <label for="range" class="form-label mb-3">Distanza: <span class="primary-color fw-bold ">{{ range }} km</span></label>
+                    <input type="range" v-model="range" class="form-range" min="2" max="20" step="1" id="range">
+                </div>
             </div>
-            <div class="col-4 m-4">
-                <label for="range" class="form-label mb-3">Distanza: <span class="primary-color fw-bold ">{{ range }} km</span></label>
-                <input type="range" v-model="range" class="form-range" min="2" max="20" step="1" id="range">
+        </div> 
+        <div class="container">
+            <div class="row justify-content-center">
+                <SingleCard class="p-0 col-3 mx-4 my-5" v-for="apartment in apartments" :key="apartment.id"
+                :title="apartment.title" :apartment_image="apartment.img" :address="apartment.address" :description="apartment.description" :fullLength="true" 
+                linkLabel="Read more..."
+                :linkRoute="{name: 'single-apartment', params: { id: apartment.id}}" />
+            </div>
+            <div class='row'>
+                <FilterSearchBar @check-filter = "updateDataByFilter" 
+                v-for="apartment in apartments" :no_bathrooms="apartment.no_bathrooms" :no_beds="apartment.no_beds"
+                :no_rooms="apartment.no_rooms" :services="apartment.services"
+                />
             </div>
         </div>
-    </div> 
-    <div class="container">
-        <div class="row justify-content-center">
-            <SingleCard class="p-0 col-3 mx-4 my-5" v-for="apartment in apartments" :key="apartment.id"
-            :title="apartment.title" :apartment_image="apartment.img" :address="apartment.address" :description="apartment.description" :fullLength="true" 
-            linkLabel="Read more..."
-            :linkRoute="{name: 'single-apartment', params: { id: apartment.id}}" />
-        </div>
-        <div class='row'>
-            <FilterSearchBar @check-filter = "updateDataByFilter" 
-            v-for="apartment in apartments" :no_bathrooms="apartment.no_bathrooms" :no_beds="apartment.no_beds"
-            :no_rooms="apartment.no_rooms" :services="apartment.services"
-            />
-        </div>
-    </div>
+     
 
 </template>
 

@@ -1,5 +1,7 @@
 <template>
+<!--
     <header>
+        
         <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
             <div class="d-flex">
                 <div class="header-container">
@@ -21,9 +23,8 @@
                 </div>
             </div>
         </nav>
-       
-        
     </header>
+    -->
     <apartments/>
 </template>
 <script>
