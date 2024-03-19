@@ -74,6 +74,7 @@
         </div>
         <div class="modal-footer">
             <div class="form-floating mb-3 d-flex justify-content-between">
+                <!-- <input v-model="formData" /> -->
                 <button class="btn btn-primary btn-xl" @click="sendContactForm">
                     Send your message
                 </button>
@@ -143,13 +144,18 @@ export default {
                 } else {
                     this.errors = response.data.errors;
                 }
-
-
             })
             .catch(function (error) {
                 console.warn(error);
                 
             })
+
+            this.name = '';
+            this.surname = '';
+            this.email = '';
+            this.date = '';
+            this.message = '';
+
             // if (this.errors === response.data.errors) {
             // }else {
             //     this.resetFields();
