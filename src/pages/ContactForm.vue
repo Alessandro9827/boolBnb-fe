@@ -1,16 +1,23 @@
 <template>
-    <div>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" @click="showModal = true">
-      Contact me!
-    </button>
+    
+        
 
-    <!-- Modal -->
-    <div class="modal" :class="{ 'is-active': showModal }">
-      <div class="modal-background" @click="closeModal"></div>
-      <div class="modal-content">
-        <!-- Contenuto della modale -->
-        <div class="box">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Contact me
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
+            </button>
+        </div>
+        <div class="modal-body">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-7">
@@ -46,86 +53,37 @@
                             </p>
                         </div>
                         <div class="form-floating mb-3">
-                            <textarea class="form-control testo" placeholder="Type your message here" id="floatingTextarea" v-model="message">
+                            <textarea class="form-control testo" placeholder="Type your message here" id="floatingTextarea" v-model="message" style="height: 200px;">
 
                             </textarea>
                             <label for="floatingTextarea">Type your message here</label>
                         </div>
-                        <div class="form-floating mb-3 d-flex justify-content-between">
-                            <button class="btn btn-primary btn-xl" @click="sendContactForm">
-                                Send your message
-                            </button>
-                            <button class="btn btn-warning btn-xl" @click="resetFields">
-                                Reset your message
-                            </button>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
-          
         </div>
-      </div>
-      <button class="modal-close is-large" aria-label="close" @click="closeModal"></button>
+        <div class="modal-footer">
+            <div class="form-floating mb-3 d-flex justify-content-between">
+                <button class="btn btn-primary btn-xl" @click="sendContactForm">
+                    Send your message
+                </button>
+                <button class="btn btn-warning btn-xl" @click="resetFields">
+                    Reset your message
+                </button>
+            </div>
+            
+        </div>
+        </div>
     </div>
-  </div>
-
-
+</div>
   
 
 
 
 
-    <!-- <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-7">
-                <h1>
-                    Contact me!
-                </h1>
-        
-        
-            </div>
-            <div class="col-7 mb-3">
-                <div class="alert alert-danger" v-for="error in errors.name">
-                    <p>
-                        {{ error }}
-                    </p>
-                </div>
-                <div class="form-floating">
-                    
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your name" v-model="name">
-                    <label for="floatingPassword">Type your name</label>
-                </div>
-                <div class="alert alert-danger" v-for="error in errors.email">
-                    <p>
-                        {{ error }}
-                    </p>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" v-model="email">
-                    <label for="floatingInput">Type your email address</label>
-                </div>
-                <div class="alert alert-danger" v-for="error in errors.message">
-                    <p>
-                        {{ error }}
-                    </p>
-                </div>
-                <div class="form-floating mb-3">
-                    <textarea class="form-control testo" placeholder="Type your message here" id="floatingTextarea" v-model="message">
-
-                    </textarea>
-                    <label for="floatingTextarea">Type your message here</label>
-                </div>
-                <div class="form-floating mb-3 d-flex justify-content-between">
-                    <button class="btn btn-primary btn-xl" @click="sendContactForm">
-                        Send your message
-                    </button>
-                    <button class="btn btn-warning btn-xl" @click="resetFields">
-                        Reset your message
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div> -->
+    
+       
 </template>
 <script>
 import axios from 'axios';
@@ -141,7 +99,7 @@ export default {
             showModal: false,
             
             
-            succes : false,
+            success : false,
             errors: {},
             
         }
@@ -200,8 +158,5 @@ export default {
 }
 </script>
 <style lang="sccs" scoped>
-    /* .testo{
-        height: 15rem;
-    } */
-    
+   
 </style>

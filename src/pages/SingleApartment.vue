@@ -78,6 +78,7 @@
                             </span>
                         </p>
                         <ContactForm/>
+                        
                     </div>
                     <!--Sezione dei filtri-->
                 </div>
@@ -101,6 +102,7 @@
 <script>
 import SingleCard from '@/components/SingleCard.vue';
 import ContactForm from './ContactForm.vue';
+
 import tt from "@tomtom-international/web-sdk-maps";
 import axios from 'axios';
 
@@ -148,7 +150,8 @@ export default {
     },
     components:{
         SingleCard,
-        ContactForm
+        ContactForm,
+        
     },
 
     created(){

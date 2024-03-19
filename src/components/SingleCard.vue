@@ -89,6 +89,7 @@
                             night.
                         </span>
                     </p>
+                    
                     <div class="d-flex mb-3" v-if="linkRoute">
                         <router-link :to="linkRoute" class="btn btn-outline-danger">
                             {{ linkLabel }}
@@ -103,12 +104,14 @@
 </template>
 
 <script>
+
 export default {
     data() {
         return {
 
         }
     },
+    
     props:{
         title: {
             required: true,
