@@ -1,12 +1,12 @@
 <template lang="">
      <div id="my_container">
-        <div class="d-flex justify-content-center align-items-center ">
-            <div class="col-4 form-floating m-4 d-flex search-bar form-group position-relative">
-                <input type="text" class="form-control rounded-pill" id="floatingInput"  v-model="address" @keyup.enter="getApartments()">
-                <label for="floatingInput">Search by address</label>
-                <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2" @click="getApartments()">Cerca</button>
-                <ul id="searchResults" class="position-absolute d-none" ></ul>
-            </div>
+        <div class="d-flex justify-content-center align-items-center">
+                <div class="col-4 form-floating m-4 d-flex search-bar form-group p-2">
+                    <input type="text" class="form-control rounded-pill position-relative" id="floatingInput" v-model="address" @keyup="handleInputChange" @keyup.enter="getApartments()">
+                    <label for="floatingInput">Search by address</label>
+                    <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2" @click="getApartments()">Cerca</button>
+                    <ul id="searchResults" class="position-absolute d-none"></ul>
+                </div>  
 
             <div>
                <!-- angolo prove -->
@@ -105,62 +105,8 @@ import SingleApartment from '@/pages/SingleApartment.vue';
 import Apartments from '@/pages/Apartments.vue';
 import SingleCard from '../SingleCard.vue';
 import { store } from '../js/store';
-// import FilterSearchBar from './FilterSearchBar.vue';
-
-// let addressInput = document.getElementById('floatingInput');
-
-// addressInput.addEventListener ('input', function() {
-//     let ulElement = document.getElementById('searchResults');
-//     ulElement.classList.remove('d-none');
-//     // ulElement.classList.add('d-none');
-//     if (this.value === '') ulElement.classList.add('d-none');
-//     const inputValue = this.value.replace(" ", "+");
-//     ulElement.innerHTML = '';
-//     const apiKey='9B3Txp0d4DICteHUwWohHtaZOMm3WCUY';
-//     let coordinate = `https://api.tomtom.com/search/2/search/${inputValue}.json?key=${apiKey}&countrySet=IT`;
-        
-//     async function file_get_contents(uri, callback) {
-//         let res = await fetch(uri),
-//             ret = await res.text(); 
-//         return callback ? callback(ret) : ret; // a Promise() actually.
-//     }
-//     let result = '';
-//     file_get_contents(coordinate).then((response) => {
-//         result = JSON.parse(response)
-//         // console.log(result)
-//         for (let i = 0; i < 4; i++) {
-//             const li = document.createElement('li');
-//             li.textContent = result.results[i].address.freeformAddress;
-//             li.classList.add('resultItem');
-//             li.addEventListener('click',() => {
-//                 this.value =  result.results[i].address.freeformAddress;
-//                 console.log(this)
-                
-//                 ulElement = document.getElementById('searchResults');
-//                 ulElement.innerHTML = '';
-//                 ulElement.classList.add('d-none')
-//             })
-//             ulElement.appendChild(li);
-//         }
-//         // result.results.forEach(element => {
-//         //     // console.log(element.address);
-//         //     const li = document.createElement('li');
-//         //     li.classList.add('resultItem');
-//         //     li.textContent = element.address.freeformAddress;
-//         //     li.addEventListener('click',() => {
-//         //         this.value =  element.address.freeformAddress;
-                
-//         //         ulElement = document.getElementById('searchResults');
-//         //         ulElement.innerHTML = '';
-//         //         ulElement.classList.add('d-none')
-//         //     })
-//         //     ulElement.appendChild(li);
-//         // });
-//     });
-// })
 
 export default {
-    emits: ['check-filter'],
     name: 'SearchBar',
     data(){
         return{
@@ -179,6 +125,43 @@ export default {
 
 
     methods:{
+
+        handleInputChange() {
+            let ulElement = document.getElementById('searchResults');
+            ulElement.classList.remove('d-none');
+            if (!this.address.trim()) {
+                ulElement.classList.add('d-none');
+                return;
+            }
+            const inputValue = this.address.trim().replace(" ", "+");
+            const apiKey = '9B3Txp0d4DICteHUwWohHtaZOMm3WCUY';
+            let coordinate = `https://api.tomtom.com/search/2/search/${inputValue}.json?key=${apiKey}&countrySet=IT`;
+
+            fetch(coordinate)
+                .then(response => response.json())
+                .then(result => {
+                    ulElement.innerHTML = '';
+                    for (let i = 0; i < 4; i++) {
+                        const li = document.createElement('li');
+                        li.textContent = result.results[i].address.freeformAddress;
+                        li.classList.add('resultItem');
+                        li.addEventListener('click', () => {
+                            this.address = result.results[i].address.freeformAddress;
+                            ulElement.innerHTML = '';
+                            ulElement.classList.add('d-none');
+                        });
+                        ulElement.appendChild(li);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        },
+
+
+
+
+
         updateDataByFilter(updatedOptions){
             this.filter= updatedOptions
         },
@@ -242,6 +225,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+    ul#searchResults{
+        padding: 1rem;
+        z-index: 1;
+        border-radius: 10px;
+        background-color: white;
+        top: 50px;
+        overflow: hidden;
+        list-style: none;
+        li {
+            padding: .5rem; 
+        }
+    }
 
     //.container {
     //    width: 100%;
