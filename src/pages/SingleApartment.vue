@@ -148,15 +148,16 @@ export default {
     mounted() {
         this.createMap();
     },
+    created(){
+        this.getApartment();
+    },
+
     components:{
         SingleCard,
         ContactForm,
         
     },
 
-    created(){
-        this.getApartment();
-    }
 }
 </script>
 <style lang="scss" scoped>
