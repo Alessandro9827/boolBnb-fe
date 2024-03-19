@@ -1,10 +1,11 @@
 <template lang="">
      <div id="my_container">
-        <div class="d-flex justify-content-center align-items-center">
-            <div class="col-4 form-floating m-4 d-flex search-bar">
+        <div class="d-flex justify-content-center align-items-center ">
+            <div class="col-4 form-floating m-4 d-flex search-bar form-group position-relative">
                 <input type="text" class="form-control rounded-pill" id="floatingInput"  v-model="address" @keyup.enter="getApartments()">
                 <label for="floatingInput">Search by address</label>
                 <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2" @click="getApartments()">Cerca</button>
+                <ul id="searchResults" class="position-absolute d-none" ></ul>
             </div>
 
             <div>
@@ -93,66 +94,8 @@
             linkLabel="Reserve" />
 
         </div>
-        <div class='row'>
-          
-            
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-danger" @click="showModal = true">
-                Choose your filter
-            </button>
         
-            <!-- Modal -->
-            <div class="modal" :class="{ 'is-active': showModal }">
-                <div class="modal-background" @click="closeModal"></div>
-                <div class="modal-content">
-                <!-- Contenuto della modale -->
-                <div class="box">
-                    <div class="col-4 m-4">
-                        <div class="me-3">
-                            <label for="range" class="form-label mb-3">Distanza: <span class="primary-color fw-bold ">{{ range }} km</span></label>
-                            <input type="range" v-model="range" class="form-range" min="2" max="20" step="1" id="range">
-                        </div> 
-                        <div class="me-3">
-                            <label for="beds" class="form-label mb-3">Number of beds: <!-- <span class="primary-color fw-bold ">{{ range }} km</span> --></label>
-                            <input type="number" v-model="beds" class="form-control" step="1" id="beds">
-                        </div>
-                        <div class="me-3">
-                            <label for="rooms" class="form-label mb-3">Number of rooms: <!-- <span class="primary-color fw-bold ">{{ range }} km</span> --></label>
-                            <input type="number" v-model="rooms" class="form-control" step="1" id="rooms">
-                        </div>
-                        <div class="me-3">
-                            <label for="bathrooms" class="form-label mb-3">Number of bathrooms: <!-- <span class="primary-color fw-bold ">{{ range }} km</span> --></label>
-                            <input type="number" v-model="bathrooms" class="form-control" step="1" id="bathrooms">
-                        </div>
-
-
-
-                        <div class="col-5 mb-3" v-for="service in services">
-                            <div class="form-check">
-                                <input class="form-check-input my-check" type="checkbox" v-model="filteredServices" :value="service.id" :id="'Check-' + service.id">
-                                <label class="form-check-label" :for="'Check-' + services.id">
-                                    {{ service.name }}
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn" data-bs-dismiss="modal" @click="getApartments(); closeModal()">Mostra</button>
-                        </div>
-                        <!-- <input type="checkbox" id="wifi" class="custom-checkbox" v-model="checkedFilters" value="wi-fi">
-                        <label for="wifi">Wi-Fi</label> -->
-        
-                        <!-- <input type="checkbox" id="parking" class="custom-checkbox" v-model="checkedFilters" value="parking">
-                        <label for="parking">Parking</label> -->
-        
-                        <!-- Aggiungi altre checkbox per gli altri servizi -->    
-                    </div>
-                </div>
-                <button class="modal-close is-large" aria-label="close" @click="closeModal"></button>
-            </div>
-        </div>
     </div>
-</div>
 
 </template>
 
@@ -163,6 +106,58 @@ import Apartments from '@/pages/Apartments.vue';
 import SingleCard from '../SingleCard.vue';
 import { store } from '../js/store';
 // import FilterSearchBar from './FilterSearchBar.vue';
+
+// let addressInput = document.getElementById('floatingInput');
+
+// addressInput.addEventListener ('input', function() {
+//     let ulElement = document.getElementById('searchResults');
+//     ulElement.classList.remove('d-none');
+//     // ulElement.classList.add('d-none');
+//     if (this.value === '') ulElement.classList.add('d-none');
+//     const inputValue = this.value.replace(" ", "+");
+//     ulElement.innerHTML = '';
+//     const apiKey='9B3Txp0d4DICteHUwWohHtaZOMm3WCUY';
+//     let coordinate = `https://api.tomtom.com/search/2/search/${inputValue}.json?key=${apiKey}&countrySet=IT`;
+        
+//     async function file_get_contents(uri, callback) {
+//         let res = await fetch(uri),
+//             ret = await res.text(); 
+//         return callback ? callback(ret) : ret; // a Promise() actually.
+//     }
+//     let result = '';
+//     file_get_contents(coordinate).then((response) => {
+//         result = JSON.parse(response)
+//         // console.log(result)
+//         for (let i = 0; i < 4; i++) {
+//             const li = document.createElement('li');
+//             li.textContent = result.results[i].address.freeformAddress;
+//             li.classList.add('resultItem');
+//             li.addEventListener('click',() => {
+//                 this.value =  result.results[i].address.freeformAddress;
+//                 console.log(this)
+                
+//                 ulElement = document.getElementById('searchResults');
+//                 ulElement.innerHTML = '';
+//                 ulElement.classList.add('d-none')
+//             })
+//             ulElement.appendChild(li);
+//         }
+//         // result.results.forEach(element => {
+//         //     // console.log(element.address);
+//         //     const li = document.createElement('li');
+//         //     li.classList.add('resultItem');
+//         //     li.textContent = element.address.freeformAddress;
+//         //     li.addEventListener('click',() => {
+//         //         this.value =  element.address.freeformAddress;
+                
+//         //         ulElement = document.getElementById('searchResults');
+//         //         ulElement.innerHTML = '';
+//         //         ulElement.classList.add('d-none')
+//         //     })
+//         //     ulElement.appendChild(li);
+//         // });
+//     });
+// })
 
 export default {
     emits: ['check-filter'],
