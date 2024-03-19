@@ -83,9 +83,6 @@
                                             <label for="bathrooms" class="form-label mb-3">Number of bathrooms: <!-- <span class="primary-color fw-bold ">{{ range }} km</span> --></label>
                                             <input type="number" v-model="bathrooms" class="form-control" step="1" id="bathrooms">
                                         </div>
-
-
-
                                         <div class="col-5 mb-3" v-for="service in services">
                                             <div class="form-check">
                                                 <input class="form-check-input my-check" type="checkbox" v-model="filteredServices" :value="service.id" :id="'Check-' + service.id">
@@ -125,7 +122,8 @@
             :user_surname="apartment.user.surname" 
             :user_email="apartment.user.email" 
             :title="apartment.title" 
-            :apartment_image="apartment.img" 
+            :apartment_image="apartment.img"
+            :apartment_sponsors="apartment.sponsors" 
             :no_rooms="apartment.no_rooms" 
             :no_beds="apartment.no_beds" 
             :no_bathrooms="apartment.no_bathrooms" 
@@ -210,11 +208,6 @@ export default {
                     console.error('Error fetching data:', error);
                 });
         },
-
-
-
-
-
         updateDataByFilter(updatedOptions){
             this.filter= updatedOptions
         },
@@ -265,7 +258,7 @@ export default {
 
     created() {
         this.getServices();
-        this.getApartments(this.rooms, this.beds, this.filteredServices, this.address, this.range);
+        this.getApartments();
     },
         
     components: {
@@ -284,7 +277,8 @@ export default {
         z-index: 1;
         border-radius: 10px;
         background-color: white;
-        top: 50px;
+        top: 60px;
+        left: 10px;
         overflow: hidden;
         list-style: none;
         li {
