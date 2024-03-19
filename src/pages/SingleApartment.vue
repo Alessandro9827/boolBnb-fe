@@ -44,15 +44,21 @@
                     </p>
                     <p class="info-container">
                         <span class="n-rooms">
-                            {{ apartment.no_rooms }} rooms,
+                            {{ apartment.no_rooms }} rooms <i class="fa-solid fa-circle"></i>
                         </span>
                         <span class="n-beds">
-                            {{ apartment.no_beds }} beds,
+                            {{ apartment.no_beds }} beds <i class="fa-solid fa-circle"></i>
                         </span>
                         <span class="n-bathrooms">
-                            {{ apartment.no_bathrooms }} bathrooms,
+                            {{ apartment.no_bathrooms }} bathrooms
                         </span>
                     </p>
+                    <p>
+                        <span><i class="fa-solid fa-star"></i></span>
+                        <span class="text-star">Ancora nessuna recensione</span>
+                    </p>
+                    <hr>
+                    <!--
                     <p class="price-container">
                         <span class="price">
                             {{ apartment.price }}&euro;
@@ -61,6 +67,7 @@
                             night.
                         </span>
                     </p>
+                    -->
                     <!--
                     <div class="d-flex mb-3" v-if="linkRoute">
                         <router-link :to="linkRoute" class="btn btn-outline-danger">
@@ -70,18 +77,28 @@
                     -->
                     <div class="user-info">
                         <p>
+                            <span class="user-logo">
+                                <i class="fa-solid fa-user fa-xl me-1"></i>
+                            </span>
                             <span class="info-text">
-                                Hosted by
+                                Hosted by:
                             </span>
                             <span class="info-name">
                                 {{ apartment.user.surname}} {{ apartment.user.name}}
                             </span>
                         </p>
+
                         <ContactForm/>
-                        
                     </div>
+                    <hr>
                     <!--Sezione dei filtri-->
                 </div>
+                <div class="user-info-container card-body">
+                    <p><i class="fa-solid fa-door-open fa-xl"></i>Self check-in</p>
+                    <p><i class="fa-solid fa-medal fa-xl"></i>{{ apartment.user.surname}} {{ apartment.user.name}} è Superhost.</p>
+                    <p><i class="fa-solid fa-calendar-days fa-xl"></i>Cancellazione gratuita</p>
+                </div>
+                <hr>
                 <p>
                     {{ apartment.description}}
                 </p>
@@ -162,15 +179,67 @@ export default {
 </script>
 <style lang="scss" scoped>
 
+    .card-title {
+        margin-bottom: 1.5rem;
+        margin-left: 2rem;
+        padding-top: 1rem;
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
     .img-container {
         width: 100%;
+        height: 600px;
         display: flex;
-        
+        justify-content: center;
     }
     img {
-        justify-content: center;
-        height: 550px;
-        width: 650px;
+        object-fit: cover;
+        //height: 550px;
+        //width: 650px;
+    }
+
+    .address {
+        margin: 0 0 .5rem 0;
+        font-size: 1.4rem;
+        font-weight: 400;
+    }
+
+    .fa-circle {
+        scale: .3;
+        margin-right: .2rem;
+    }
+
+    .info-container {
+        font-weight: 300;
+        margin-bottom: .3rem;
+    }
+
+    .fa-star {
+        scale: .9;
+        margin-right: .3rem;
+    }
+
+    .text-star {
+        font-weight: 300;
+    }
+
+    .info-text,
+    .info-name {
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+
+    .user-info-container{
+        i{
+            scale: 1.2;
+            margin-right: 1rem;
+        }
+        p{
+            margin-bottom: 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
     }
 
     #map {
