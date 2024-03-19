@@ -1,6 +1,9 @@
 <template lang="">
+    <AppHeader/>
     <main class="container">
+
         <section class="row justify-content-center">
+
             <div class="col-12">
                
             </div>
@@ -25,6 +28,7 @@
 </template>
 <script>
 import SingleCard from '@/components/SingleCard.vue';
+import AppHeader from '@/components/AppHeader.vue';
 import axios from 'axios';
 
 export default {
@@ -51,7 +55,8 @@ export default {
         }
     },
     components:{
-        SingleCard
+        SingleCard,
+        AppHeader
     },
 
     created(){

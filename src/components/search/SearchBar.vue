@@ -1,4 +1,47 @@
 <template lang="">
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <div class="col-5">
+                    <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
+                    <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
+                        <span class="bnb">
+                            boolbnb
+                        </span>
+                    </router-link>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
+                                <a class="nav-link active tag-home" href="#">Home</a>
+                            </router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link :to="{name: linkItems[1].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
+                                <a class="nav-link tag-search" href="#">
+                                    Search
+                                </a>
+                            </router-link>
+                        </li>
+                        <!--Inserire dropdown bootstrap per Accedere/Iscriversi
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown button
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                        -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
      <div id="my_container">
         <div class="d-flex justify-content-center align-items-center">
                 <div class="col-4 form-floating m-4 d-flex search-bar form-group p-2">
@@ -102,7 +145,7 @@
 <script>
 import axios from 'axios';
 import SingleApartment from '@/pages/SingleApartment.vue';
-import Apartments from '@/pages/Apartments.vue';
+
 import SingleCard from '../SingleCard.vue';
 import { store } from '../js/store';
 
@@ -120,6 +163,16 @@ export default {
             rooms: 0,
             bathrooms: 0,
             // filter: ['wi-fi', 'parking', 'sauna']
+            linkItems: [
+                {
+                    label: 'Apartments',
+                    routerName: 'apartments'
+                },
+                {
+                    label: 'Search',
+                    routerName: 'apartments-search'
+                },
+            ]
         }     
     },
 
@@ -217,7 +270,7 @@ export default {
         
     components: {
         SingleApartment,
-        Apartments,
+        
         SingleCard,
         // FilterSearchBar,
     }
@@ -312,4 +365,36 @@ export default {
     cursor: pointer;
     color: #333;
   }
+  .navbar{
+    height: 70px;
+    width: 50%;
+    padding-left: 2rem;
+    margin-top: 3rem;
+    border-radius: 3rem;
+    background-color: white;
+    margin: 0 auto;
+
+}
+
+img.logo{
+    vertical-align: bottom;
+    width: 40px;
+    height: 40px;
+}
+
+span.bnb{
+    color: #FF385C;
+    font-size: 1.4rem;
+}
+
+.tag-home,
+.tag-search{
+    font-weight: 400;
+    margin-right: 1rem;
+    font-size: 1.4rem;
+}
+
+//nav#boolBnB-logo{
+//    width: 40%;
+//}
 </style>
