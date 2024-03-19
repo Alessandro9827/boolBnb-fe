@@ -32,6 +32,7 @@
     <main class="container">
         <section class="row justify-content-center">
             <div class="card">
+                <div class="position-container">
                 <h1 class="card-title">
                     {{ apartment.title }}
                 </h1>
@@ -99,14 +100,15 @@
                     <p><i class="fa-solid fa-calendar-days fa-xl"></i>Cancellazione gratuita</p>
                 </div>
                 <hr>
-                <p>
+                <p class="description-text">
                     {{ apartment.description}}
                 </p>
+                </div>
                 <div class="row pb-5 ">
                 <div class="col-12">
                     <hr>
-                    <p class="fs-4 fw-semibold mt-4 mb-3">Where you’ll be</p>
-                    <p class="address">
+                    <p class="fs-4 fw-semibold mt-4 mb-3"><i class="fa-solid fa-location-dot me-2"></i>Where you’ll be</p>
+                    <p class="map-address">
                         {{ apartment.address }}
                     </p>
                     <div id="map"></div>
@@ -114,6 +116,19 @@
             </div>
             </div>
         </section>
+        
+            <div class="card-form">
+                <p class="price-container">
+                    <span class="price">
+                        {{ apartment.price }}&euro;
+                    </span>
+                    <span class="price-text">
+                        night.
+                    </span>
+                </p>
+
+            </div>
+        
     </main>
 </template>
 <script>
@@ -179,6 +194,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 
+    .position-container {
+        position: relative;
+    }
+
     .card-title {
         margin-bottom: 1.5rem;
         margin-left: 2rem;
@@ -242,8 +261,47 @@ export default {
         }
     }
 
+    .description-text{
+        font-weight: 300;
+        margin: .8rem;
+        width: 50%;
+    }
+
+    .map-address{
+        font-size: .9rem;
+        font-weight: 300;
+    }
+
     #map {
         width: 100%;
         height: 500px;
     }
+
+    /*Card price Style*/
+
+    .card-form {
+        border: 1px solid rgb(221, 221, 221);
+        background-color: white;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+        height: 500px;
+        width: 350px;
+        position: absolute;
+        top: 1500px;
+        right: 110px;
+        margin: .2rem;
+        //z-index: 1;
+        //overflow: scroll;
+    }
+
+    .price {
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+    .price-text {
+        font-weight: 300;
+        font-size: 1.2rem;
+    }
+
 </style>
