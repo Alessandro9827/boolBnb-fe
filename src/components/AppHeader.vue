@@ -81,9 +81,10 @@
             </div>
            
         </nav>
-        <section class="header-text">
-        <h1 class="text-white"> Recharge energies in our unique BnB</h1>
-        <div> hfhfhfhfhfh </div>
+        <section class="header-text text-white">
+        <h1 class="text-center mt-5 mb-4"> Recharge energies in our unique BnB</h1>
+        <div class="text-center"> <p></p> </div>
+        bu
     </section>
     </section>
 </section>
@@ -119,10 +120,10 @@ export default {
 .jumbotron {
     position: relative; /* Assicura che i pseudoelementi siano posizionati correttamente */
     width: 100%;
-    height: 1200px;
+    height: 800px;
     background-image: url(../../public/img/baita-valon-sotto-le-stelle.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: left;
     background-repeat: no-repeat;
 }
 
