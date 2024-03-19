@@ -22,8 +22,6 @@
                             <div class="modal-content">
                             <!-- Contenuto della modale -->
                             <div class="box">
-                                <ul>
-                                <div>
                                     <div class="col-4 m-4">
                                         <div class="me-3">
                                             <label for="range" class="form-label mb-3">Distanza: <span class="primary-color fw-bold ">{{ range }} km</span></label>
@@ -54,7 +52,7 @@
                                         </div>
 
                                         <div class="modal-footer">
-                                            <button type="button" class="btn" data-bs-dismiss="modal" @click="getApartments(this.rooms, this.beds, this.filteredServices, this.address, this.range);">Mostra</button>
+                                            <button type="button" class="btn" data-bs-dismiss="modal" @click="getApartments()">Mostra</button>
                                         </div>
                                         <!-- <input type="checkbox" id="wifi" class="custom-checkbox" v-model="checkedFilters" value="wi-fi">
                                         <label for="wifi">Wi-Fi</label> -->
@@ -67,16 +65,12 @@
                                         
                                     </div>
                                 </div>
-                                </ul>
-                            </div>
                             </div>
                             <button class="modal-close is-large" aria-label="close" @click="closeModal"></button>
                         </div>
-                        </div>
-
-      </div>
+                    </div>
+                </div>
             </div>
-           
         </div>
     </div> 
     
@@ -101,72 +95,64 @@
         </div>
         <div class='row'>
           
-            <div>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-outline-danger" @click="showModal = true">
-                  Choose your filter
-                </button>
             
-                <!-- Modal -->
-                <div class="modal" :class="{ 'is-active': showModal }">
-                  <div class="modal-background" @click="closeModal"></div>
-                  <div class="modal-content">
-                    <!-- Contenuto della modale -->
-                    <div class="box">
-                      <ul>
-                        <div>
-                            <div class="col-4 m-4">
-                                <div class="me-3">
-                                    <label for="range" class="form-label mb-3">Distanza: <span class="primary-color fw-bold ">{{ range }} km</span></label>
-                                    <input type="range" v-model="range" class="form-range" min="2" max="20" step="1" id="range">
-                                </div> 
-                                <div class="me-3">
-                                    <label for="beds" class="form-label mb-3">Number of beds: <!-- <span class="primary-color fw-bold ">{{ range }} km</span> --></label>
-                                    <input type="number" v-model="beds" class="form-control" step="1" id="beds">
-                                </div>
-                                <div class="me-3">
-                                    <label for="rooms" class="form-label mb-3">Number of rooms: <!-- <span class="primary-color fw-bold ">{{ range }} km</span> --></label>
-                                    <input type="number" v-model="rooms" class="form-control" step="1" id="rooms">
-                                </div>
-                                <div class="me-3">
-                                    <label for="bathrooms" class="form-label mb-3">Number of bathrooms: <!-- <span class="primary-color fw-bold ">{{ range }} km</span> --></label>
-                                    <input type="number" v-model="bathrooms" class="form-control" step="1" id="bathrooms">
-                                </div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-danger" @click="showModal = true">
+                Choose your filter
+            </button>
+        
+            <!-- Modal -->
+            <div class="modal" :class="{ 'is-active': showModal }">
+                <div class="modal-background" @click="closeModal"></div>
+                <div class="modal-content">
+                <!-- Contenuto della modale -->
+                <div class="box">
+                    <div class="col-4 m-4">
+                        <div class="me-3">
+                            <label for="range" class="form-label mb-3">Distanza: <span class="primary-color fw-bold ">{{ range }} km</span></label>
+                            <input type="range" v-model="range" class="form-range" min="2" max="20" step="1" id="range">
+                        </div> 
+                        <div class="me-3">
+                            <label for="beds" class="form-label mb-3">Number of beds: <!-- <span class="primary-color fw-bold ">{{ range }} km</span> --></label>
+                            <input type="number" v-model="beds" class="form-control" step="1" id="beds">
+                        </div>
+                        <div class="me-3">
+                            <label for="rooms" class="form-label mb-3">Number of rooms: <!-- <span class="primary-color fw-bold ">{{ range }} km</span> --></label>
+                            <input type="number" v-model="rooms" class="form-control" step="1" id="rooms">
+                        </div>
+                        <div class="me-3">
+                            <label for="bathrooms" class="form-label mb-3">Number of bathrooms: <!-- <span class="primary-color fw-bold ">{{ range }} km</span> --></label>
+                            <input type="number" v-model="bathrooms" class="form-control" step="1" id="bathrooms">
+                        </div>
 
 
 
-                                <div class="col-5 mb-3" v-for="service in services">
-                                    <div class="form-check">
-                                        <input class="form-check-input my-check" type="checkbox" v-model="filteredServices" :value="service.id" :id="'Check-' + service.id">
-                                        <label class="form-check-label" :for="'Check-' + services.id">
-                                            {{ service.name }}
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn" data-bs-dismiss="modal" @click="getApartments(this.rooms, this.beds, this.filteredServices, this.address, this.range);">Mostra</button>
-                                </div>
-                              <!-- <input type="checkbox" id="wifi" class="custom-checkbox" v-model="checkedFilters" value="wi-fi">
-                              <label for="wifi">Wi-Fi</label> -->
-                
-                              <!-- <input type="checkbox" id="parking" class="custom-checkbox" v-model="checkedFilters" value="parking">
-                              <label for="parking">Parking</label> -->
-                
-                              <!-- Aggiungi altre checkbox per gli altri servizi -->
-                                
-                               
+                        <div class="col-5 mb-3" v-for="service in services">
+                            <div class="form-check">
+                                <input class="form-check-input my-check" type="checkbox" v-model="filteredServices" :value="service.id" :id="'Check-' + service.id">
+                                <label class="form-check-label" :for="'Check-' + services.id">
+                                    {{ service.name }}
+                                </label>
                             </div>
                         </div>
-                      </ul>
-                    </div>
-                  </div>
-                  <button class="modal-close is-large" aria-label="close" @click="closeModal"></button>
-                </div>
-              </div>
 
+                        <div class="modal-footer">
+                            <button type="button" class="btn" data-bs-dismiss="modal" @click="getApartments(); closeModal()">Mostra</button>
+                        </div>
+                        <!-- <input type="checkbox" id="wifi" class="custom-checkbox" v-model="checkedFilters" value="wi-fi">
+                        <label for="wifi">Wi-Fi</label> -->
+        
+                        <!-- <input type="checkbox" id="parking" class="custom-checkbox" v-model="checkedFilters" value="parking">
+                        <label for="parking">Parking</label> -->
+        
+                        <!-- Aggiungi altre checkbox per gli altri servizi -->    
+                    </div>
+                </div>
+                <button class="modal-close is-large" aria-label="close" @click="closeModal"></button>
+            </div>
         </div>
     </div>
+</div>
 
 </template>
 
@@ -209,6 +195,7 @@ export default {
                     rooms: this.rooms,
                     bathrooms: this.bathrooms,
                     range: this.range,
+                    services: this.filteredServices
                 }
             })
             .then((response) => {
@@ -228,7 +215,7 @@ export default {
             })
             .then( response => {
                 console.log(response.data.results);
-                // this.services = response.data.results;
+                this.services = response.data.results;
             })
             .catch(function (error) {
                 console.log(error);
