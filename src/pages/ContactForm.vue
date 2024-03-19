@@ -102,6 +102,7 @@ export default {
     data() {
         return {
             name : '',
+            surname: '',
             email : '',
             date : '',
             message : '',
@@ -122,6 +123,7 @@ export default {
 
             const fillingData = {
                 name: this.name,
+                surname: this.surname,
                 email : this.email,
                 date : new Date().toJSON().slice(0, 10).replace(/-/g,'/'),
                 message : this.message,
@@ -155,6 +157,7 @@ export default {
         },
         resetFields(){
         this.name = '';
+        this.surname = '';
         this.email = '';
         this.date = '';
         this.message = '';
