@@ -2,46 +2,10 @@
     <header >
         <section class="jumbotron pt-4">
        
-        <!--
-        <div class=" container" data-bs-theme="dark">
-            <div class="row ">
-                    <div class="col-4 mt-4">
-                        <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
-                        <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
-                            <span class="bnb">
-                                boolbnb
-                            </span>
-                        </router-link>
-                    </div>
-                    <div class="col-4 mt-4">
-                        <router-link :to="{name: linkItems[1].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
-                            <span class="">
-                                {{linkItems[1].label}}
-                            </span>
-                        </router-link>
-                    </div>
-                    <!-- <div class="col-4 mt-4">
-                        <router-link :to="{name: linkItems[2].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
-                            <span class="">
-                                Contact Us
-                            </span>
-                        </router-link>
-                    </div> --><!--
-            </div>
-            
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ">
-                    <li class="nav-item " v-for=" (link,index) in linkItems " :key="index">
-                        
-                    </li> 
-                </ul>
-            </div>
-            
-        </div>
-    -->
+        
     <section > 
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg ">
+            <!-- <div class="container-fluid d-flex justify-contet-evenly">
                 <div class="col-5">
                     <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
                     <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
@@ -51,19 +15,19 @@
                     </router-link>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
+                    
+                        <div class="mt-1 ">
                             <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
                                 <a class="nav-link active tag-home" href="#">Home</a>
                             </router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link :to="{name: linkItems[1].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
+                        </div>
+                         <div class="mt-2 ">
+                             <router-link :to="{name: linkItems[1].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
                                 <a class="nav-link tag-search" href="#">
                                     search
                                 </a>
                             </router-link>
-                        </li>
+                        </div> --> 
                         <!--Inserire dropdown bootstrap per Accedere/Iscriversi
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -75,16 +39,50 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </div>
-                        -->
-                    </ul>
+                        
+                   
+                </div>
+            </div> -->
+            <div class="container-fluid d-flex justify-contet-evenly">
+                <div class="col-5">
+                    <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
+                    <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
+                        <span class="bnb">
+                            boolbnb
+                        </span>
+                    </router-link>
+                </div>
+               
+                <div class="mt-1 me-3 ">
+                    <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
+                        <a class="nav-link active tag-home" href="#">Home</a>
+                    </router-link>
                 </div>
             </div>
            
         </nav>
         <section class="header-text text-white">
         <h1 class="text-center mt-5 mb-4"> Recharge energies in our unique BnB</h1>
-        <div class="text-center"> <p></p> </div>
-        bu
+        <div class="text-center">
+            <p>
+                Elevate your well-being by booking with us, <br>
+                where every detail is designed to <br> 
+                offer you a break from  daily stress.
+            </p>
+           
+            <router-link :to="{name: linkItems[1].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
+                <a class="btn btn-danger cerca tag-search" href="#">
+                    Book now!
+                </a>
+                
+            </router-link>
+            
+            
+
+            
+        </div>
+        
+    
     </section>
     </section>
 </section>
@@ -127,53 +125,50 @@ export default {
     background-repeat: no-repeat;
 }
 
-.jumbotron::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Opacità del 50% */
-}
+   
 
 /* Aggiustiamo il contenuto all'interno della jumbotron per essere visibile sopra il livello semi-trasparente */
 .jumbotron .content {
     position: relative;
     z-index: 1; /* Assicura che il contenuto sia sopra l'overlay */
+
+    
 }
 
 
-    .navbar{
-        height: 70px;
-        width: 50%;
-        padding-left: 2rem;
-        margin-top: 3rem;
-        border-radius: 3rem;
-        background-color: white;
-        margin: 0 auto;
+.navbar{
+    height: 70px;
+    width: 50%;
+    padding-left: 2rem;
+    margin-top: 3rem;
+    border-radius: 3rem;
+    background-color: white;
+    margin: 0 auto;
 
-    }
+}
 
-    img.logo{
-        vertical-align: bottom;
-        width: 40px;
-        height: 40px;
-    }
+img.logo{
+    vertical-align: bottom;
+    width: 40px;
+    height: 40px;
+}
 
-    span.bnb{
-        color: #FF385C;
-        font-size: 1.4rem;
-    }
+span.bnb{
+    color: #FF385C;
+    font-size: 1.4rem;
+}
 
-    .tag-home,
-    .tag-search{
-        font-weight: 400;
-        margin-right: 1rem;
-        font-size: 1.4rem;
-    }
+.tag-home,
+.tag-search{
+    font-weight: 400;
+    margin-right: 1rem;
+    font-size: 1.4rem;
+}
 
 //nav#boolBnB-logo{
 //    width: 40%;
 //}
+
+
+
 </style>

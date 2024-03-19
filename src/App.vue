@@ -10,7 +10,9 @@ import AppHeader from './components/AppHeader.vue'
 
 <template>
     <AppHeader/>
-    <router-view></router-view>
+    <router-view>
+      
+    </router-view>
 
 </template>
 
