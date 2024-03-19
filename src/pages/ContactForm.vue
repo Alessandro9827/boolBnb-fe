@@ -43,6 +43,15 @@
                                 {{ error }}
                             </p>
                         </div>
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingSurname" placeholder="Your surname" v-model="surname">
+                            <label for="floatingPassword">Type your surname</label>
+                        </div>
+                        <div class="alert alert-danger" v-for="error in errors.email">
+                            <p>
+                                {{ error }}
+                            </p>
+                        </div>
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" v-model="email">
                             <label for="floatingInput">Type your email address</label>
