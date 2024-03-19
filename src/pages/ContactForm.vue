@@ -38,7 +38,7 @@
                             <input type="text" class="form-control" id="floatingName" placeholder="Your name" v-model="name">
                             <label for="floatingPassword">Type your name</label>
                         </div>
-                        <div class="alert alert-danger" v-for="error in errors.email">
+                        <div class="alert alert-danger" v-for="error in errors.surname">
                             <p>
                                 {{ error }}
                             </p>
@@ -86,15 +86,9 @@
         </div>
         </div>
     </div>
-</div>
-  
-
-
-
-
-    
-       
+</div>       
 </template>
+
 <script>
 import axios from 'axios';
 export default {
