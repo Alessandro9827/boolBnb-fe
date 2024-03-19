@@ -68,7 +68,7 @@
                 <router-link class="link" :to="linkRoute">
                     <div class="img-container rounded">
                         <img v-if="apartment_image" :src="apartment_image" class="card-img-top mb-3 rounded" :class="fullLength ? '' : 'image-preview'" alt="...">
-                        <div class="sponsor-text-container">
+                        <div class="sponsor-text-container" v-if="apartment_sponsors.length > 0">
                             <span>Sponsorizzato</span>
                         </div>
                     </div>
@@ -155,6 +155,10 @@ export default {
         description: {
             required: false,
             type: String,
+        },
+        apartment_sponsors: {
+            required: false,
+            type: Array,
         },
         apartment_image: {
             required: true,
