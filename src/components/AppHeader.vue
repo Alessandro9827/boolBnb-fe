@@ -1,5 +1,7 @@
 <template lang="">
-    <header>
+    <header >
+        <section class="jumbotron pt-4">
+       
         <!--
         <div class=" container" data-bs-theme="dark">
             <div class="row ">
@@ -37,6 +39,7 @@
             
         </div>
     -->
+    <section > 
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <div class="col-5">
@@ -57,7 +60,7 @@
                         <li class="nav-item">
                             <router-link :to="{name: linkItems[1].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
                                 <a class="nav-link tag-search" href="#">
-                                    Search
+                                    search
                                 </a>
                             </router-link>
                         </li>
@@ -76,8 +79,14 @@
                     </ul>
                 </div>
             </div>
+           
         </nav>
-    
+        <section class="header-text">
+        <h1 class="text-white"> Recharge energies in our unique BnB</h1>
+        <div> hfhfhfhfhfh </div>
+    </section>
+    </section>
+</section>
     </header>
 </template>
 <script>
@@ -107,10 +116,42 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.jumbotron {
+    position: relative; /* Assicura che i pseudoelementi siano posizionati correttamente */
+    width: 100%;
+    height: 1200px;
+    background-image: url(../../public/img/baita-valon-sotto-le-stelle.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.jumbotron::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Opacità del 50% */
+}
+
+/* Aggiustiamo il contenuto all'interno della jumbotron per essere visibile sopra il livello semi-trasparente */
+.jumbotron .content {
+    position: relative;
+    z-index: 1; /* Assicura che il contenuto sia sopra l'overlay */
+}
+
 
     .navbar{
-        height: 80px;
+        height: 70px;
+        width: 50%;
+        padding-left: 2rem;
+        margin-top: 3rem;
+        border-radius: 3rem;
         background-color: white;
+        margin: 0 auto;
+
     }
 
     img.logo{
