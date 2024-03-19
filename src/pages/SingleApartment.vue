@@ -1,4 +1,47 @@
 <template lang="">
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <div class="col-5">
+                    <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
+                    <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
+                        <span class="bnb">
+                            boolbnb
+                        </span>
+                    </router-link>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
+                                <a class="nav-link active tag-home" href="#">Home</a>
+                            </router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link :to="{name: linkItems[1].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
+                                <a class="nav-link tag-search" href="#">
+                                    Search
+                                </a>
+                            </router-link>
+                        </li>
+                        <!--Inserire dropdown bootstrap per Accedere/Iscriversi
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown button
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                        -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
     <!--
     <main class="container">
         <section class="row justify-content-center">
@@ -128,7 +171,17 @@ export default {
     data(){
         return{
             apartment: {},
-            id: ''
+            id: '',
+            linkItems: [
+                {
+                    label: 'Apartments',
+                    routerName: 'apartments'
+                },
+                {
+                    label: 'Search',
+                    routerName: 'apartments-search'
+                },
+            ]
         }
     },
     methods:{
@@ -246,4 +299,121 @@ export default {
         width: 100%;
         height: 500px;
     }
+
+    ul#searchResults{
+        padding: 1rem;
+        z-index: 1;
+        border-radius: 10px;
+        background-color: white;
+        top: 50px;
+        overflow: hidden;
+        list-style: none;
+        li {
+            padding: .5rem; 
+        }
+    }
+
+    //.container {
+    //    width: 100%;
+    //    display: flex;
+    //    justify-content: center;
+    //}
+
+    .rounded-pill{
+        border-color: white;
+    }
+
+    .search-bar{
+        border: 1px solid lightgrey;
+        border-radius: 35px;
+    }
+
+    .rounded-btn {
+        border-radius: 15px;
+    }
+
+    .input-group{
+        width: 50%;
+    }
+    div#my_container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    /* Stili per la modale */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal.is-active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    width: 50%;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+  }
+  .navbar{
+    height: 70px;
+    width: 50%;
+    padding-left: 2rem;
+    margin-top: 3rem;
+    border-radius: 3rem;
+    background-color: white;
+    margin: 0 auto;
+    padding: 3rem;
+
+}
+
+img.logo{
+    vertical-align: bottom;
+    width: 40px;
+    height: 40px;
+}
+
+span.bnb{
+    color: #FF385C;
+    font-size: 1.4rem;
+}
+
+.tag-home,
+.tag-search{
+    font-weight: 400;
+    margin-right: 1rem;
+    font-size: 1.4rem;
+}
+
 </style>
