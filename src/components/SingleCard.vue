@@ -64,38 +64,37 @@
     -->
     <main class="container">
         <section class="row justify-content-center">
-            <div class="card">
-                <div class="img-container rounded">
-                    <img v-if="apartment_image" :src="apartment_image" class="card-img-top mb-3 rounded" :class="fullLength ? '' : 'image-preview'" alt="...">
-                    <div class="sponsor-text-container">
-                        <span>Sponsorizzato</span>
-                    </div>
-                </div>
-                    <!--
+            <div class="card carda" v-if="linkRoute">
+                <router-link class="link" :to="linkRoute">
+                    <div class="img-container rounded">
                         <img v-if="apartment_image" :src="apartment_image" class="card-img-top mb-3 rounded" :class="fullLength ? '' : 'image-preview'" alt="...">
-                    -->
-                <div class="card-body">
-                    <h5 class="card-title">
-                        {{ title }}
-                    </h5>
-                    <p class="address">
-                        {{ address }}
-                    </p>
-                    <p class="price-container">
-                        <span class="price">
-                            {{ price }}&euro;
-                        </span>
-                        <span class="text">
-                            night.
-                        </span>
-                    </p>
-                    
-                    <div class="d-flex mb-3" v-if="linkRoute">
-                        <router-link :to="linkRoute" class="btn btn-outline-danger">
-                            {{ linkLabel }}
-                        </router-link>
+                        <div class="sponsor-text-container">
+                            <span>Sponsorizzato</span>
+                        </div>
                     </div>
-                </div>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ title }}
+                        </h5>
+                        <p class="address">
+                            {{ address }}
+                        </p>
+                        <p class="price-container">
+                            <span class="price">
+                                {{ price }}&euro;
+                            </span>
+                            <span class="text">
+                                night.
+                            </span>
+                        </p>
+                        
+                        <!-- <div class="d-flex mb-3" v-if="linkRoute">
+                            <router-link :to="linkRoute">
+                                {{ linkLabel }}
+                                <img v-if="apartment_image" :src="apartment_image" class="card-img-top mb-3 rounded" :class="fullLength ? '' : 'image-preview'" alt="...">
+                        </div> -->
+                    </div>
+                </router-link>
             </div>
         </section>
     </main>
@@ -231,5 +230,18 @@ export default {
     .text {
         font-weight: 300;
     }
-    
+    .link{
+        text-decoration: none;
+        color: black;
+
+        
+    }
+
+    .carda{
+        &:hover {
+        box-shadow: black;
+        
+        padding: 1rem;
+        }
+    }
 </style>

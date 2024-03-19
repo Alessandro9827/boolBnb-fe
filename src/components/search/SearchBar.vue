@@ -10,34 +10,7 @@
                         </span>
                     </router-link>
                 </div>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
-                                <a class="nav-link active tag-home" href="#">Home</a>
-                            </router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link :to="{name: linkItems[1].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
-                                <a class="nav-link tag-search" href="#">
-                                    Search
-                                </a>
-                            </router-link>
-                        </li>
-                        <!--Inserire dropdown bootstrap per Accedere/Iscriversi
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown button
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </div>
-                        -->
-                    </ul>
-                </div>
+                
             </div>
         </nav>
 
