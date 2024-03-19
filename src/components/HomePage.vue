@@ -28,6 +28,7 @@
 </template>
 <script>
 import Apartments from '@/pages/Apartments.vue'
+import AppHeader from './AppHeader.vue';
 
 
 export default {
@@ -47,7 +48,8 @@ export default {
         }
     },
     components: {
-        Apartments
+        Apartments,
+        AppHeader
     }
     
 }
