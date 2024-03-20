@@ -5,12 +5,12 @@
                 <div class="col-5">
                     <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
                     <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
-                        <span class="bnb">
+                        <span class="bnb d-sm-none">
                             boolbnb
                         </span>
                     </router-link>
                 </div>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
@@ -24,59 +24,18 @@
                                 </a>
                             </router-link>
                         </li>
-                        <!--Inserire dropdown bootstrap per Accedere/Iscriversi
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown button
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </div>
-                        -->
+                      
                     </ul>
-                </div>
+                </div> -->
             </div>
         </nav>
 
     </header>
-    <!--
+    
     <main class="container">
-        <section class="row justify-content-center">
-            <SingleCard class="p-0 col-12 mx-4 my-5" 
-            :user_name="apartment.user.name" 
-            :user_surname="apartment.user.surname" 
-            :user_email="apartment.user.email" 
-            :title="apartment.title" 
-            :apartment_image="apartment.img" 
-            :no_rooms="apartment.no_rooms" 
-            :no_beds="apartment.no_beds" 
-            :no_bathrooms="apartment.no_bathrooms" 
-            :square_meters="apartment.square_meters" 
-            :address="apartment.address"
-            :price="apartment.price" 
-            :description="apartment.description || ''" 
-            :fullLength="true"
-            />
-            <div class="row pb-5 ">
-                <div class="col-12">
-                    <hr>
-                    <p class="fs-4 fw-semibold mt-4 mb-3">Dove sarai?</p>
-                    <div id="map"></div>
-                </div>
-            </div>
-            <ContactForm/>
-        </section>
-    </main>
-    -->
-
-    <main class="container">
-        <section class="row justify-content-center">
-            <div class="card">
-                <div class="position-container">
-                <h1 class="card-title">
+        <section class="row justify-content-center card-container">
+            <div class="card" id="carda">
+                <h1 class="card-title ">
                     {{ apartment.title }}
                 </h1>
                 <div class="img-container">
@@ -99,26 +58,10 @@
                     </p>
                     <p>
                         <span><i class="fa-solid fa-star"></i></span>
-                        <span class="text-star">Ancora nessuna recensione</span>
+                        <span class="text-star">No reviews yet</span>
                     </p>
                     <hr>
-                    <!--
-                    <p class="price-container">
-                        <span class="price">
-                            {{ apartment.price }}&euro;
-                        </span>
-                        <span class="text">
-                            night.
-                        </span>
-                    </p>
-                    -->
-                    <!--
-                    <div class="d-flex mb-3" v-if="linkRoute">
-                        <router-link :to="linkRoute" class="btn btn-outline-danger">
-                            {{ linkLabel }}
-                        </router-link>
-                    </div>
-                    -->
+                   
                     <div class="user-info">
                         <p>
                             <span class="user-logo">
@@ -133,46 +76,86 @@
                         </p>
 
                         <ContactForm/>
-                        
+                        <ContactMe/>
                     </div>
                     <hr>
                     <!--Sezione dei filtri-->
                 </div>
                 <div class="user-info-container card-body">
                     <p><i class="fa-solid fa-door-open fa-xl"></i>Self check-in</p>
-                    <p><i class="fa-solid fa-medal fa-xl"></i>{{ apartment.user.surname}} {{ apartment.user.name}} è Superhost.</p>
-                    <p><i class="fa-solid fa-calendar-days fa-xl"></i>Cancellazione gratuita</p>
+                    <p><i class="fa-solid fa-medal fa-xl"></i>{{ apartment.user.surname}} {{ apartment.user.name}} is Superhost.</p>
+                    <p><i class="fa-solid fa-calendar-days fa-xl"></i>Free cancellation</p>
                 </div>
+
                 <hr>
-                <p class="description-text">
-                    {{ apartment.description}}
-                </p>
+
+                <div class="row col-12 d-flex justify-content-between price-card">
+                    <div class="col-7 description-container">
+                        <p class="description-text">
+                            {{ apartment.description}}
+                        </p>
+                    </div>
+                    <div class="col-4 d-flex justify-content-end">
+                        <div class="price-form">
+                            <p class="price-container">
+                                <span class="price">
+                                    {{ apartment.price }}&euro;
+                                </span>
+                                <span class="price-text">
+                                    night.
+                                </span>
+                            </p>
+                            <p class="d-flex justify-content-between">
+                                <span class="bolder">
+                                    Cleaning costs
+                                </span>
+                                <span class="tini">
+                                    20&euro;/night
+                                </span>
+                            </p>
+                            <p class="d-flex justify-content-between">
+                                <span class="bolder">
+                                Boolbnb Costs
+                                </span>
+                                <span class="tini">
+                                    50&euro;
+                                </span>
+                            </p>
+                            <p class="d-flex justify-content-between">
+                                <span class="bolder">
+                                    Tax
+                                </span>
+                                <span class="tini">
+                                    30&euro;
+                                </span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="row pb-5 ">
-                <div class="col-12">
-                    <hr>
-                    <p class="fs-4 fw-semibold mt-4 mb-3"><i class="fa-solid fa-location-dot me-2"></i>Where you’ll be</p>
-                    <p class="map-address">
-                        {{ apartment.address }}
-                    </p>
-                    <div id="map"></div>
+                    <div class="col-12">
+                        <hr>
+                        <p class="fs-4 fw-semibold mt-4 mb-3"><i class="fa-solid fa-location-dot me-2"></i>Where you’ll be</p>
+                        <p class="map-address">
+                            {{ apartment.address }}
+                        </p>
+                        <div id="map"></div>
+                    </div>
                 </div>
-            </div>
             </div>
         </section>
-        
-            <div class="card-form">
-                <p class="price-container">
-                    <span class="price">
+
+            <div class="price-container-fix">
+                <p class="price-form-fix">
+                    <span class="price-fix">
                         {{ apartment.price }}&euro;
                     </span>
-                    <span class="price-text">
+                    <span class="text-fix">
                         night.
                     </span>
                 </p>
-
             </div>
-        
     </main>
 </template>
 <script>
@@ -252,6 +235,9 @@ export default {
 
     .position-container {
         position: relative;
+    }
+    #carda{
+        border: none;
     }
 
     .card-title {
@@ -469,6 +455,17 @@ span.bnb{
         //overflow: scroll;
     }
 
+    .price-form {
+        margin-right: 2rem;
+        margin-top: .5rem;
+        width: 80%;
+        height: 230px;
+        border: 1px solid rgb(221, 221, 221);
+        background-color: white;
+        border-radius: 12px;
+        padding: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    }
     .price {
         font-weight: 600;
         font-size: 1.5rem;
@@ -476,6 +473,65 @@ span.bnb{
     .price-text {
         font-weight: 300;
         font-size: 1.2rem;
+    }
+    @media screen and (max-width: 768px) {
+        .price-form {
+            display: none;
+        }
+
+        .description-container {
+            width: 100%;
+        }
+        .price-container-fix {
+            //display: block;
+            width: 100%;
+            height: 100px;
+            position: fixed;
+            z-index: 2;
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+        .price-form {
+            display: none;
+        }
+
+        .description-container {
+            width: 100%;
+        }
+
+        .price-container-fix {
+            //display: block;
+            width: 100%;
+            height: 60px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 6px 16px;
+            border-top: lightgrey ;
+        }
+        
+        .price-fix {
+        font-weight: 600;
+        font-size: 1.3rem;
+        }
+        .text-fix {
+            font-weight: 300;
+            font-size: 1.1rem;
+        }
+
+        .price-form-fix {
+            padding: 1rem;
+        }
+    }
+
+    @media screen and (min-width: 1002px) {
+        .price-container-fix {
+            display: none;
+        }
     }
 
 
