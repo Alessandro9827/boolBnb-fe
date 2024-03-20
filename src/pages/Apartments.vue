@@ -7,7 +7,7 @@
             <div class="col-12">
                
             </div>
-            <SingleCard class="card p-0 col-lg-3 col-sm-6 col-md-4 mx-4 my-5" v-for="apartment in apartments" :key="apartment.id"
+            <SingleCard class="card p-0 col-lg-3 col-sm-10 col-md-5 mx-4 my-5" v-for="apartment in apartments" :key="apartment.id"
             :user_name="apartment.user.name" 
             :user_surname="apartment.user.surname" 
             :user_email="apartment.user.email" 
