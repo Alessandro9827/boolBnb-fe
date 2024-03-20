@@ -100,7 +100,7 @@ export default {
 }
 
 .navbar{
-    height: 60px;
+    /*height: 60px;*/
     width: 50%;
     padding-left: 2rem;
     margin-top: 3rem;
