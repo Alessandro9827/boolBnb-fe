@@ -4,12 +4,12 @@
             <div class="container">
               <div class="row">
                 <div class="col-md-4">
-                  <h5>Airbnb</h5>
+                  <h5>BoolBnB</h5>
                   <ul class="list-unstyled">
-                    <li><a href="#">Scopri Airbnb</a></li>
+                    <li><a href="#">Scopri BoolBnB</a></li>
                     <li><a href="#">Opportunità di lavoro</a></li>
                     <li><a href="#">Newsroom</a></li>
-                    <li><a href="#">Airbnb Plus</a></li>
+                    <li><a href="#">BoolBnB Plus</a></li>
                   </ul>
                 </div>
                 <div class="col-md-4">
@@ -17,7 +17,7 @@
                   <ul class="list-unstyled">
                     <li><a href="#">Diversità e appartenenza</a></li>
                     <li><a href="#">Accessibilità</a></li>
-                    <li><a href="#">Airbnb Associates</a></li>
+                    <li><a href="#">BoolBnB Associates</a></li>
                     <li><a href="#">Alloggi per l'emergenza</a></li>
                   </ul>
                 </div>
@@ -33,7 +33,7 @@
               </div>
               <div class="row">
                 <div class="col-md-12 text-center">
-                  <p class="text-muted">© 2024 Airbnb, Inc.</p>
+                  <p class="text-muted">© 2024 BoolBnB, Inc.</p>
                 </div>
               </div>
             </div>
