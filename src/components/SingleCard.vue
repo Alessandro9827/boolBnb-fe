@@ -199,7 +199,6 @@ export default {
     img{
         object-fit: cover;
         height: 340px;
-        width: 340px;
     }
 
     .sponsor-text-container {

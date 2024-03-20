@@ -4,56 +4,18 @@
        
         
     <section > 
-        <nav class="navbar navbar-expand-lg ">
-            <!-- <div class="container-fluid d-flex justify-contet-evenly">
-                <div class="col-5">
-                    <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
-                    <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
-                        <span class="bnb">
-                            boolbnb
-                        </span>
-                    </router-link>
-                </div>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    
-                        <div class="mt-1 ">
-                            <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
-                                <a class="nav-link active tag-home" href="#">Home</a>
-                            </router-link>
-                        </div>
-                         <div class="mt-2 ">
-                             <router-link :to="{name: linkItems[1].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
-                                <a class="nav-link tag-search" href="#">
-                                    search
-                                </a>
-                            </router-link>
-                        </div> --> 
-                        <!--Inserire dropdown bootstrap per Accedere/Iscriversi
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown button
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </div>
-                        
-                   
-                </div>
-            </div> -->
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid d-flex justify-contet-evenly">
-                <div class="col-5">
-                    <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
+                <div class="">
                     <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
-                        <span class="bnb">
+                        <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
+                        <span class="bnb d-sm-none d-md-inline-block">
                             boolbnb
                         </span>
                     </router-link>
                 </div>
                
-                <div class="mt-1 me-3 ">
+                <div class="">
                     <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
                         <a class="nav-link active tag-home" href="#">Home</a>
                     </router-link>
