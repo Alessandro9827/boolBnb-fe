@@ -6,7 +6,7 @@
     <section > 
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid d-flex justify-contet-evenly">
-                <div class="">
+                <div>
                     <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
                         <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
                         <span class="bnb d-sm-none d-md-inline-block">
