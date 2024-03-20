@@ -36,7 +36,7 @@
                         <div class="form-floating">
                             
                             <input type="text" class="form-control" id="floatingName" placeholder="Your name" v-model="name">
-                            <label for="floatingPassword">Type your name</label>
+                            <label for="floatingPassword">Type your name ciaooooo</label>
                         </div>
                         <div class="alert alert-danger" v-for="error in errors.surname">
                             <p>
