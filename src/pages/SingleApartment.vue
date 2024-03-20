@@ -73,9 +73,8 @@
     -->
 
     <main class="container">
-        <section class="row justify-content-center">
+        <section class="row justify-content-center card-container">
             <div class="card">
-                <div class="position-container">
                 <h1 class="card-title">
                     {{ apartment.title }}
                 </h1>
@@ -142,24 +141,66 @@
                     <p><i class="fa-solid fa-medal fa-xl"></i>{{ apartment.user.surname}} {{ apartment.user.name}} è Superhost.</p>
                     <p><i class="fa-solid fa-calendar-days fa-xl"></i>Cancellazione gratuita</p>
                 </div>
+
                 <hr>
-                <p class="description-text">
-                    {{ apartment.description}}
-                </p>
+
+                <div class="row col-12 d-flex justify-content-between">
+                    <div class="col-7">
+                        <p class="description-text">
+                            {{ apartment.description}}
+                        </p>
+                    </div>
+                    <div class="col-5 d-flex justify-content-end">
+                        <div class="price-form">
+                            <p class="price-container">
+                                <span class="price">
+                                    {{ apartment.price }}&euro;
+                                </span>
+                                <span class="price-text">
+                                    night.
+                                </span>
+                            </p>
+                            <p class="d-flex justify-content-between">
+                                <span class="bolder">
+                                    Costi di pulizia
+                                </span>
+                                <span class="tini">
+                                    20&euro;/notte
+                                </span>
+                            </p>
+                            <p class="d-flex justify-content-between">
+                                <span class="bolder">
+                                    Costi Boolbnb
+                                </span>
+                                <span class="tini">
+                                    50&euro;
+                                </span>
+                            </p>
+                            <p class="d-flex justify-content-between">
+                                <span class="bolder">
+                                    Tasse
+                                </span>
+                                <span class="tini">
+                                    30&euro;
+                                </span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="row pb-5 ">
-                <div class="col-12">
-                    <hr>
-                    <p class="fs-4 fw-semibold mt-4 mb-3"><i class="fa-solid fa-location-dot me-2"></i>Where you’ll be</p>
-                    <p class="map-address">
-                        {{ apartment.address }}
-                    </p>
-                    <div id="map"></div>
+                    <div class="col-12">
+                        <hr>
+                        <p class="fs-4 fw-semibold mt-4 mb-3"><i class="fa-solid fa-location-dot me-2"></i>Where you’ll be</p>
+                        <p class="map-address">
+                            {{ apartment.address }}
+                        </p>
+                        <div id="map"></div>
+                    </div>
                 </div>
-            </div>
             </div>
         </section>
-        
+        <!--
             <div class="card-form">
                 <p class="price-container">
                     <span class="price">
@@ -171,7 +212,7 @@
                 </p>
 
             </div>
-        
+        --> 
     </main>
 </template>
 <script>
@@ -247,14 +288,25 @@ export default {
 </script>
 <style lang="scss" scoped>
 
-    .position-container {
-        position: relative;
+    .container {
+        width: 100%;
+        align-items: center;
+    }
+
+    .card-container{
+        width: 100%;
+    }
+
+    .card {
+        //padding: 0 9rem 1.5rem 9rem;
+        border: none;
+        width: 90%;
     }
 
     .card-title {
         margin-bottom: 1.5rem;
-        margin-left: 2rem;
-        padding-top: 1rem;
+        //margin-left: 2rem;
+        padding-top: 2rem;
         font-size: 2rem;
         font-weight: 500;
     }
@@ -317,7 +369,7 @@ export default {
     .description-text{
         font-weight: 300;
         margin: .8rem;
-        width: 50%;
+        //width: 50%;
     }
 
     .map-address{
@@ -464,6 +516,29 @@ span.bnb{
         margin: .2rem;
         //z-index: 1;
         //overflow: scroll;
+    }
+
+    .price-container {
+        margin-bottom: 2rem;
+    }
+
+    .price-form {
+        margin-right: 2rem;
+        margin-top: .5rem;
+        width: 60%;
+        height: 230px;
+        border: 1px solid rgb(221, 221, 221);
+        background-color: white;
+        border-radius: 12px;
+        padding: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    }
+
+    .bolder {
+        font-weight: 600;
+    }
+    .tini {
+        font-weight: 300;
     }
 
     .price {
