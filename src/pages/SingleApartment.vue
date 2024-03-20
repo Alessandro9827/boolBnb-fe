@@ -3,9 +3,10 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <div class="col-5">
-                    <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
+                    
                     <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
-                        <span class="bnb">
+                        <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
+                        <span class="bnb d-sm-none d-md-inline-block">
                             boolbnb
                         </span>
                     </router-link>
@@ -144,13 +145,13 @@
 
                 <hr>
 
-                <div class="row col-12 d-flex justify-content-between">
-                    <div class="col-7">
+                <div class="row col-12 d-flex justify-content-between price-card">
+                    <div class="col-7 description-container">
                         <p class="description-text">
                             {{ apartment.description}}
                         </p>
                     </div>
-                    <div class="col-5 d-flex justify-content-end">
+                    <div class="col-4 d-flex justify-content-end">
                         <div class="price-form">
                             <p class="price-container">
                                 <span class="price">
@@ -200,19 +201,17 @@
                 </div>
             </div>
         </section>
-        <!--
-            <div class="card-form">
-                <p class="price-container">
-                    <span class="price">
+
+            <div class="price-container-fix">
+                <p class="price-form-fix">
+                    <span class="price-fix">
                         {{ apartment.price }}&euro;
                     </span>
-                    <span class="price-text">
+                    <span class="text-fix">
                         night.
                     </span>
                 </p>
-
             </div>
-        --> 
     </main>
 </template>
 <script>
@@ -295,6 +294,8 @@ export default {
 
     .card-container{
         width: 100%;
+        position: relative;
+        z-index: 1;
     }
 
     .card {
@@ -508,12 +509,12 @@ span.bnb{
         border-radius: 12px;
         padding: 24px;
         box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
-        height: 500px;
-        width: 350px;
+        //height: 500px;
+        //width: 350px;
         position: absolute;
         top: 1500px;
         right: 110px;
-        margin: .2rem;
+        //margin: .2rem;
         //z-index: 1;
         //overflow: scroll;
     }
@@ -525,7 +526,7 @@ span.bnb{
     .price-form {
         margin-right: 2rem;
         margin-top: .5rem;
-        width: 60%;
+        width: 80%;
         height: 230px;
         border: 1px solid rgb(221, 221, 221);
         background-color: white;
@@ -550,5 +551,82 @@ span.bnb{
         font-size: 1.2rem;
     }
 
+    @media screen and (max-width: 576px) {
+        /*Allungare e allargare la card*/
+        .price-form {
+            display: none;
+        }
+
+        .description-container {
+            width: 100%;
+        }
+
+        .price-container-fix {
+            //display: block;
+            width: 100%;
+            height: 100px;
+            position: fixed;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .price-form {
+            display: none;
+        }
+
+        .description-container {
+            width: 100%;
+        }
+        .price-container-fix {
+            //display: block;
+            width: 100%;
+            height: 100px;
+            position: fixed;
+            z-index: 2;
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+        .price-form {
+            display: none;
+        }
+
+        .description-container {
+            width: 100%;
+        }
+
+        .price-container-fix {
+            //display: block;
+            width: 100%;
+            height: 60px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 6px 16px;
+            border-top: lightgrey ;
+        }
+        
+        .price-fix {
+        font-weight: 600;
+        font-size: 1.3rem;
+        }
+        .text-fix {
+            font-weight: 300;
+            font-size: 1.1rem;
+        }
+
+        .price-form-fix {
+            padding: 1rem;
+        }
+    }
+
+    @media screen and (min-width: 1002px) {
+        .price-container-fix {
+            display: none;
+        }
+    }
 
 </style>
