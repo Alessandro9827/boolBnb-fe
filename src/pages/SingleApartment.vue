@@ -5,7 +5,7 @@
                 <div class="col-5">
                     <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
                     <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
-                        <span class="bnb d-sm-none">
+                        <span class="bnb d-sm-none d-md-inline-block">
                             boolbnb
                         </span>
                     </router-link>
