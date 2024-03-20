@@ -3,7 +3,6 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <div class="col-5">
-                    
                     <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
                         <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
                         <span class="bnb d-sm-none d-md-inline-block">
@@ -12,7 +11,7 @@
                     </router-link>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
                                 <a class="nav-link active tag-home" href="#">Home</a>
@@ -24,7 +23,7 @@
                                     Search
                                 </a>
                             </router-link>
-                        </li>
+                        </li> -->
                         <!--Inserire dropdown bootstrap per Accedere/Iscriversi
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,7 +36,7 @@
                             </ul>
                         </div>
                         -->
-                    </ul>
+                    <!-- </ul> -->
                 </div>
             </div>
         </nav>
@@ -99,7 +98,7 @@
                     </p>
                     <p>
                         <span><i class="fa-solid fa-star"></i></span>
-                        <span class="text-star">Ancora nessuna recensione</span>
+                        <span class="text-star">No reviews yet</span>
                     </p>
                     <hr>
                     <!--
@@ -139,8 +138,8 @@
                 </div>
                 <div class="user-info-container card-body">
                     <p><i class="fa-solid fa-door-open fa-xl"></i>Self check-in</p>
-                    <p><i class="fa-solid fa-medal fa-xl"></i>{{ apartment.user.surname}} {{ apartment.user.name}} è Superhost.</p>
-                    <p><i class="fa-solid fa-calendar-days fa-xl"></i>Cancellazione gratuita</p>
+                    <p><i class="fa-solid fa-medal fa-xl"></i>{{ apartment.user.surname}} {{ apartment.user.name}} is Superhost.</p>
+                    <p><i class="fa-solid fa-calendar-days fa-xl"></i>Free cancellation</p>
                 </div>
 
                 <hr>
@@ -163,15 +162,15 @@
                             </p>
                             <p class="d-flex justify-content-between">
                                 <span class="bolder">
-                                    Costi di pulizia
+                                    Cleaning costs
                                 </span>
                                 <span class="tini">
-                                    20&euro;/notte
+                                    20&euro;/night
                                 </span>
                             </p>
                             <p class="d-flex justify-content-between">
                                 <span class="bolder">
-                                    Costi Boolbnb
+                                Boolbnb Costs
                                 </span>
                                 <span class="tini">
                                     50&euro;
@@ -179,7 +178,7 @@
                             </p>
                             <p class="d-flex justify-content-between">
                                 <span class="bolder">
-                                    Tasse
+                                    Tax
                                 </span>
                                 <span class="tini">
                                     30&euro;
