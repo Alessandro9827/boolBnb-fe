@@ -13,9 +13,7 @@
         <div class="modal-content">
         <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-
-            </button>
+            
         </div>
         <div class="modal-body">
             <div class="container">
@@ -36,7 +34,7 @@
                         <div class="form-floating">
                             
                             <input type="text" class="form-control" id="floatingName" placeholder="Your name" v-model="name">
-                            <label for="floatingPassword">Type your name ciaooooo</label>
+                            <label for="floatingPassword">Type your name</label>
                         </div>
                         <div class="alert alert-danger" v-for="error in errors.surname">
                             <p>
