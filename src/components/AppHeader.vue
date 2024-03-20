@@ -71,10 +71,9 @@
             </p>
            
             <router-link :to="{name: linkItems[1].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
-                <a class="btn btn-danger cerca tag-search" href="#">
+                <a class="btn btn-danger cerca tag-search br fs-5" href="#">
                     Book now!
                 </a>
-                
             </router-link>
             
             
@@ -134,10 +133,12 @@ export default {
 
     
 }
-
+.br{
+    border-radius: 3rem;
+}
 
 .navbar{
-    height: 70px;
+    height: 60px;
     width: 50%;
     padding-left: 2rem;
     margin-top: 3rem;

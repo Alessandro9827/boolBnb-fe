@@ -1,8 +1,11 @@
 <template lang="">
     <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <div class="col-5">
+      
+
+    </header>
+     <div id="my_container">
+        <div class="d-flex justify-content-between align-items-center ps-4">
+            <div>
                     <img class="logo img-fluid" src="/public/img/airbnb_logo_icon_170605.png" alt="logo-bnb">
                     <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4"> 
                         <span class="bnb">
@@ -10,14 +13,7 @@
                         </span>
                     </router-link>
                 </div>
-                
-            </div>
-        </nav>
-
-    </header>
-     <div id="my_container">
-        <div class="d-flex justify-content-center align-items-center">
-                <div class="col-4 form-floating m-4 d-flex search-bar form-group p-2">
+                <div class="col-5 form-floating m-4 d-flex search-bar form-group p-2">
                     <input type="text" class="form-control rounded-pill position-relative" id="floatingInput" v-model="address" @keyup="handleInputChange" @keyup.enter="getApartments()">
                     <label for="floatingInput">Search by address</label>
                     <button class="btn btn-danger m-1 rounded-pill" type="button" id="button-addon2" @click="getApartments()">Cerca</button>
@@ -272,6 +268,7 @@ export default {
     .search-bar{
         border: 1px solid lightgrey;
         border-radius: 35px;
+        height: 70px;
     }
 
     .rounded-btn {

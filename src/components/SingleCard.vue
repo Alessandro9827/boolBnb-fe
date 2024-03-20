@@ -66,8 +66,8 @@
         <section class="row justify-content-center">
             <div class="card carda" v-if="linkRoute">
                 <router-link class="link" :to="linkRoute">
-                    <div class="img-container rounded">
-                        <img v-if="apartment_image" :src="apartment_image" class="card-img-top mb-3 rounded" :class="fullLength ? '' : 'image-preview'" alt="...">
+                    <div class="img-container br">
+                        <img v-if="apartment_image" :src="apartment_image" class="card-img-top mb-3 br" :class="fullLength ? '' : 'image-preview'" alt="...">
                         <div class="sponsor-text-container" v-if="apartment_sponsors.length > 0">
                             <span>Sponsorizzato</span>
                         </div>
@@ -221,7 +221,9 @@ export default {
         //margin-bottom: 3rem;
     //}
     
-    
+    .br{
+        border-radius: 1rem;
+    }
 
     .address {
         color: #717171;
