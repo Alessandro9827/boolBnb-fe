@@ -14,12 +14,6 @@
                         </span>
                     </router-link>
                 </div>
-               
-                <div class="">
-                    <router-link :to="{name: linkItems[0].routerName}" class="navbar-brand fw-semibold bnb ps-2 fs-4">
-                        <a class="nav-link active tag-home" href="#">Home</a>
-                    </router-link>
-                </div>
                 <div class="dropdown">
                     <button class="btn btn-danger dropdown-toggle rounded-pill me-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-user me-1"></i>User
