@@ -20,6 +20,15 @@
                         <a class="nav-link active tag-home" href="#">Home</a>
                     </router-link>
                 </div>
+                <div class="dropdown">
+                    <button class="btn btn-danger dropdown-toggle rounded-pill me-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user me-1"></i>User
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="http://127.0.0.1:8000/login">Login</a></li>
+                        <li><a class="dropdown-item" href="http://127.0.0.1:8000/register">subscribe</a></li>
+                    </ul>
+                </div>
             </div>
            
         </nav>
